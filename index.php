@@ -13,6 +13,10 @@ $_POST['content'] = '<h3>HTML content</h3>';
 
 $router = new \Joska\Router();
 
+
+echo \Joska\Asset::script('aaa');
+exit;
+
 $router
     ->declareRoute('/test', 'Joska\Controller\Test')
     ->declareRoute('/post/{id}', 'Joska\Controller\Post')
