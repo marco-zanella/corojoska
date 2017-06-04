@@ -29,5 +29,6 @@
     
     <files>
         <directory>src</directory>
+        <ignore>src/View/*</ignore>
     </files>
 </phpdoc>
