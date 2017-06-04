@@ -1,2 +1,4 @@
 # corojoska
-Coro della Joska websit.
+Coro della Joska website.
+
+This repository holds the source code of the website.
