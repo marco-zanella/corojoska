@@ -63,19 +63,27 @@ class Sqlite implements DataMapperInterface {
      * 
      * @param \Joska\Model\ModelInterface $model Model to create
      * @return $this This data mapper itself
+     * @throws \Exception If query fails
      * @api
      */
     public function create(\Joska\Model\ModelInterface $model) {
+        // Reads parameters
         $params = $this->modelToFields($model);
         $query = $this->prepareInsert($this->model_name, $params);
         $binders = $this->getBinders($params);
 
+        // Prepares statement
         $stm = $this->db->prepare($query);
+        $this->checkResult($stm, $query);
+
+        // Binds parameters
         foreach ($binders as $key => $value) {
             $stm->bindValue($key, $value);
         }
-        $stm->execute();
 
+        // Executes
+        $result = $stm->execute();
+        $this->checkResult($result);
         $model->id = $this->db->lastInsertRowId();
 
         return $this;
@@ -91,9 +99,11 @@ class Sqlite implements DataMapperInterface {
      * 
      * @param string|array $key Identifier of the object to read
      * @return \Joska\Model\ModelInterface|bool Read model, or false
+     * @throws \Exception If query fails
      * @api
      */
     public function read($key) {
+        // Reads parameters
         if (is_scalar($key)) {
             $key = ['id' => $key];
         }
@@ -105,26 +115,31 @@ class Sqlite implements DataMapperInterface {
         );
         $binders = $this->getBinders($key, 'where_');
 
+        // Prepares statement
         $stm = $this->db->prepare($query);
+        $this->checkResult($stm, $query);
+
+        // Binds parameters
         foreach ($binders as $key => $value) {
             $stm->bindValue($key, $value);
         }
+
+        // Executes
         $result = $stm->execute();
-        if ($result === false) {
-// error
+        $this->checkResult($result, $query);
+
+        // Creates model
+        $model_class = '\\Joska\Model\\' . $this->model_name;
+        $model = new $model_class();
+        $row = $result->fetchArray(SQLITE3_ASSOC);
+        if ($row === false) {
+            return null;
+        }
+        foreach ($row as $key => $value) {
+            $model->$key = $value;
         }
 
-       $model_class = '\\Joska\Model\\' . $this->model_name;
-       $model = new $model_class();
-       $row = $result->fetchArray(SQLITE3_ASSOC);
-       if ($row === false) {
-           return null;
-       }
-       foreach ($row as $key => $value) {
-           $model->$key = $value;
-       }
-
-       return $model;
+        return $model;
     }
 
 
@@ -134,12 +149,13 @@ class Sqlite implements DataMapperInterface {
      * 
      * @param \Joska\Model\ModelInterface $model Model to update
      * @return $this This data mapper itself
+     * @throws \Exception If query fails
      * @api
      */
     public function update(\Joska\Model\ModelInterface $model) {
+        // Reads parameters
         $params = $this->modelToFields($model);
         $key = $model->getId();
-
 
         $query = $this->prepareUpdate(
             strtolower($this->model_name),
@@ -149,15 +165,19 @@ class Sqlite implements DataMapperInterface {
         $binders = $this->getBinders($params, 'set_');
         $binders = array_merge($binders, $this->getBinders($key, 'where_'));
 
+        // Prepares statement
         $stm = $this->db->prepare($query);
+        $this->checkResult($stm, $query);
+
+        // Binds parameters
         foreach ($binders as $key => $value) {
             $stm->bindValue($key, $value);
         }
-        $result = $stm->execute();
 
-        if ($result === false) {
-// error
-        }
+        // Executes
+        $result = $stm->execute();
+        $this->checkResult($result);
+
         return $this;
     }
 
@@ -171,9 +191,11 @@ class Sqlite implements DataMapperInterface {
      * 
      * @param string|array $key Identifier of the object to delete
      * @return $this This data mapper itself
+     * @throws \Exception If query fails
      * @api
      */
     public function delete($key) {
+        // Reads parameters
         if (is_scalar($key)) {
             $key = ['id' => $key];
         }
@@ -184,14 +206,44 @@ class Sqlite implements DataMapperInterface {
         );
         $binders = $this->getBinders($key, 'where_');
 
+        // Prepares statement
         $stm = $this->db->prepare($query);
+        $this->checkResult($stm);
+
+        // Binds parameters
         foreach ($binders as $key => $value) {
             $stm->bindValue($key, $value);
         }
+
+        // Executes
         $result = $stm->execute();
-        if ($result === false) {
-// error
-        }
+        $this->checkResult($result);
+
         return $this;
+    }
+
+
+
+    /**
+     * Checks result of an SQLite3 prepare, query or excec.
+     * 
+     * Throws an exception in case of error.
+     * 
+     * @param mixed $result Result of the operation
+     * @param string $query Query
+     * @return bool True if there were no errors
+     * @throws \Exception If there were errors
+     */
+    protected function checkResult($result, $query = '') {
+        if ($result !== false) {
+            return true;
+        }
+
+        $message = 'Error';
+        if (!empty($query)) {
+            $message .= ' while executing query "' . $query . '"';
+        }
+        $message .= ': ' . $this->db->lastErrorMsg();
+        throw new \Exception($message);
     }
 }

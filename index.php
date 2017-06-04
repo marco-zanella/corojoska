@@ -1,21 +1,17 @@
 <?php
-error_reporting(E_ALL);
-
-require_once 'src/autoloader.php';
-
-
+// Debugging purposes
 $_SERVER = [];
-$_SERVER['REQUESTED_URI'] = '/test';
-$_SERVER['REQUEST_METHOD'] = 'POST';
+$_SERVER['REQUESTED_URI'] = '/post/1';
+$_SERVER['REQUEST_METHOD'] = 'GET';
 
 $_POST = [];
 $_POST['content'] = '<h3>HTML content</h3>';
+// End
+
+error_reporting(E_ALL);
+require_once 'src/autoloader.php';
 
 $router = new \Joska\Router();
-
-
-echo \Joska\Asset::script('aaa');
-exit;
 
 $router
     ->declareRoute('/test', 'Joska\Controller\Test')
