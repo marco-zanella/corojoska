@@ -60,6 +60,6 @@ class Asset {
      * @return string Absolute path to the asset
      */
     public static function url($path) {
-        return __DIR__ . '/public/' . $path;
+        return __DIR__ . '/../public/' . $path;
     }
 }
