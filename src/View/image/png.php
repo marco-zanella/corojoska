@@ -1,5 +1,6 @@
 <?php
 header('Content-Type: image/png');
-header('Content-Disposition: attachment; filename="' . $name . '.png"');
+header('Content-Disposition: inline; filename="' . $name . '.png"');
 
 $image->png();
+?>

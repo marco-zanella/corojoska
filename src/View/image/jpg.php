@@ -1,5 +1,6 @@
 <?php
 header('Content-Type: image/jpeg');
-header('Content-Disposition: attachment; filename="' . $name . '.jpg"');
+header('Content-Disposition: inline; filename="' . $name . '.jpg"');
 
 $image->jpeg(null, 90);
+?>
