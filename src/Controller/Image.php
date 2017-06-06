@@ -53,7 +53,7 @@ class Image extends Controller {
             $img->scaleandcrop($binders['width'], $binders['height']);
         }
 
-        // Converts to give extension
+        // Converts to given extension
         if (isset($binders['extension'])) {
             $format = $binders['extension'];
         }
