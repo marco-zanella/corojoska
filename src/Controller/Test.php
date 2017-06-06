@@ -57,7 +57,7 @@ class test extends Controller {
      * @api
      */
     public function get($binders = []) {
-        $this->view('test/get');
+        $this->view('test/post');
 
         return $this;
     }

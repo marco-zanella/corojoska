@@ -48,11 +48,13 @@ class Router {
     public function declareRoute($pattern, $controller_name) {
         $binders = $this->routeMatch($pattern, $_SERVER['REQUEST_URI']);
 
+echo "Testing..." . $pattern . "<br>";
         // Returns if route does not match
         if ($binders === false) {
             return $this;
         }
 
+echo "match";
         $controller = new $controller_name();
         $method = $this->getMethod();
 
