@@ -46,7 +46,7 @@ class Router {
      * @note This method expects global arrays such as $_SERVER to be set
      */
     public function declareRoute($pattern, $controller_name) {
-        $binders = $this->routeMatch($pattern, $_SERVER['REQUESTED_URI']);
+        $binders = $this->routeMatch($pattern, $_SERVER['REQUEST_URI']);
 
         // Returns if route does not match
         if ($binders === false) {
