@@ -1,7 +1,7 @@
 <?php
 // Debugging purposes
 $_SERVER = [];
-$_SERVER['REQUESTED_URI'] = '/post/1';
+$_SERVER['REQUESTED_URI'] = '/image/' . urlencode('http://www.cssauthor.com/wp-content/uploads/2014/09/Free-Mockup-PSD1.jpg') . '/1000/100/jpg';
 $_SERVER['REQUEST_METHOD'] = 'GET';
 
 $_POST = [];
@@ -16,4 +16,5 @@ $router = new \Joska\Router();
 $router
     ->declareRoute('/test', 'Joska\Controller\Test')
     ->declareRoute('/post/{id}', 'Joska\Controller\Post')
+    ->declareRoute('/image/{path}/{width}/{height}/{extension?}', 'Joska\Controller\Image')
 ;
