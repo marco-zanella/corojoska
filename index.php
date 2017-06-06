@@ -1,7 +1,7 @@
 <?php
 // Debugging purposes
 $_SERVER = [];
-$_SERVER['REQUESTED_URI'] = '/image/' . urlencode('http://www.cssauthor.com/wp-content/uploads/2014/09/Free-Mockup-PSD1.jpg') . '/1000/100/jpg';
+$_SERVER['REQUESTED_URI'] = '/image/' . urlencode('http://www.cssauthor.com/wp-content/uploads/2014/09/Free-Mockup-PSD1.jpg') . '/640/480/png';
 $_SERVER['REQUEST_METHOD'] = 'GET';
 
 $_POST = [];

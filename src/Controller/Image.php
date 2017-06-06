@@ -59,7 +59,8 @@ class Image extends Controller {
         }
 
         // Outputs the image
-        $this->view('image/' . $format, ['image' => $img]);
+        $name = basename($path);
+        $this->view('image/' . $format, ['image' => $img, 'name' => $name]);
 
         return $this;
     }
