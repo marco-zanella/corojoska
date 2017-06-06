@@ -34,7 +34,6 @@ namespace Joska\DataMapper;
  * @author Marco Zanella <mz@openmailbox.org>
  * @copyright 2017 Coro della Joska
  * @package Joska\DataMapper
- * @todo This class has not been tested
  */
 class Sql implements DataMapperInterface {
     use SqlTrait;
@@ -66,7 +65,7 @@ class Sql implements DataMapperInterface {
         $this->model_name = $model_name;
         $dsn = 'mysql:dbname=' . $db_name . ';host=' . $db_host;
         $this->dbh = new \PDO($dsn, $db_user, $db_pass);
-        $this->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+        $this->dbh->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
     }
 
 
@@ -82,7 +81,7 @@ class Sql implements DataMapperInterface {
     public function create(\Joska\Model\ModelInterface $model) {
         // Reads parameters
         $params = $this->modelToFields($model);
-        $query = $this->prepareInsert($this->model_name, $params);
+        $query = $this->prepareInsert(strtolower($this->model_name), $params);
         $binders = $this->getBinders($params);
 
         // Prepares statement
