@@ -48,12 +48,11 @@ class Sqlite implements DataMapperInterface {
      * Constructor.
      * 
      * @param string $model_name Name of the mapped model
-     * @todo Use name of the database as parameter
+     * @param string $database Path to the SQLite database file
      */
-    public function __construct($model_name) {
+    public function __construct($model_name, $database = 'database.db') {
         $this->model_name = $model_name;
-
-        $this->db = new \SQLite3('/home/picci/Scrivania/cj.db');
+        $this->db = new \SQLite3($database);
     }
 
 
