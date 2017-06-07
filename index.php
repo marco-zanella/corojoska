@@ -13,6 +13,7 @@ require_once 'src/autoloader.php';
 
 $router = new \Joska\Router();
 
+
 $router
     ->declareRoute('/test', 'Joska\Controller\Test')
     ->declareRoute('/post/{id}', 'Joska\Controller\Post')
