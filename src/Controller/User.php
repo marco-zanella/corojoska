@@ -75,4 +75,50 @@ class User extends Controller {
         $users = $mapper->search();
         return $this->view('users', ['users' => $users]);
     }
+
+
+
+    /**
+     * Updates a user.
+     * 
+     * @param array $binders Associative array of binders
+     * @return $this This controller itself
+     * @api
+     */
+    public function put($binders = []) {
+        if (!isset($binders['id'])) {
+            throw new \Exception("Missing user identifier.");
+        }
+
+        $mapper = new \Joska\DataMapper\Sql('User');
+        $user = $mapper->read($binders['id']);
+        $user->username = $_POST['username'];
+        $user->name = $_POST['name'];
+        $user->surname = $_POST['surname'];
+        $mapper->update($user);
+
+        return $this->view('user', ['user' => $user]);
+    }
+
+
+
+    /**
+     * Deletes a user.
+     * 
+     * @param array Associative array of additional parameters
+     * @return $this This controller itself
+     * @api
+     */
+    public function delete($binders = []) {
+        if (!isset($binders['id'])) {
+            throw new \Exception("Missing user identifier.");
+        }
+
+        $id = $binders['id'];
+
+        $mapper = new \Joska\DataMapper\Sql('User');
+        $mapper->delete($id);
+        $users = $mapper->search();
+        return $this->view('users', ['users' => $users]);
+    }
 }
