@@ -2,11 +2,6 @@
 /**
  * This file is part of Corojoska.
  *
- * Corojoska is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
  * Corojoska is distributed under the hope it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
@@ -21,11 +16,16 @@
  * @copyright 2017 Coro della Joska
  * @license   GNU General Public License, version 3
  */
-set_error_handler(function ($errno, $errstr, $errfile, $errline) {
-    echo "Error $errno: $errstr in $errfile: $errline\n";
-    die();
-});
+namespace Joska\Model;
 
-set_exception_handler(function ($exception) {
-    echo $exception->getMessage();
-});
+/**
+ * An user of the system.
+ * 
+ * This class follows the Model-View-Controller Pattern.
+ * 
+ * @author Marco Zanella <mz@openmailbox.org>
+ * @copyright 2017 Coro della Joska
+ * @package Joska\Model
+ */
+class User extends Model {
+}

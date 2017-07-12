@@ -7,6 +7,8 @@ require_once 'src/autoloader.php';
 $router = new \Joska\Router();
 
 $router
+    ->declareRoute('/user/{id?}', 'Joska\Controller\User')
+
     ->declareRoute('/test', 'Joska\Controller\Test')
     ->declareRoute('/post/{id}', 'Joska\Controller\Post')
     ->declareRoute('/image/{path}/{width}/{height}/{extension?}', 'Joska\Controller\Image')

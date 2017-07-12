@@ -49,6 +49,9 @@ class Sql implements DataMapperInterface {
     /**
      * Constructor.
      * 
+     * Reads connection parameters from a config.ini file, if available.
+     * Parameters can be overwritten by passing them as parameters.
+     * 
      * @param string $model_name Name of the mapped model
      * @param string $db_name Name of the database
      * @param string $db_host Host of the database
@@ -57,11 +60,33 @@ class Sql implements DataMapperInterface {
      */
     public function __construct(
         $model_name,
-        $db_name,
+        $db_name = null,
         $db_host = 'localhost',
         $db_user = null,
         $db_pass = null
     ) {
+        // Uses a config file, if available
+        if (is_readable('config.ini')) {
+            $config = parse_ini_file('config.ini', true);
+            $config = isset($config['sql']) ? $config['sql'] : [];
+
+            if (isset($config['name']) && empty($db_name)) {
+                $db_name = $config['name'];
+            }
+
+            if (isset($config['host']) && empty($db_host)) {
+                $db_host = $config['host'];
+            }
+
+            if (isset($config['user']) && empty($db_user)) {
+                $db_user = $config['user'];
+            }
+
+            if (isset($config['password']) && empty($db_pass)) {
+                $db_pass = $config['password'];
+            }
+        }
+
         $this->model_name = $model_name;
         $dsn = 'mysql:dbname=' . $db_name . ';host=' . $db_host;
         $this->dbh = new \PDO($dsn, $db_user, $db_pass);

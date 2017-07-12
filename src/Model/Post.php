@@ -21,7 +21,7 @@ namespace Joska\Model;
 /**
  * A blog post.
  * 
- * This interface follows the Model-View-Controller Pattern.
+ * This class follows the Model-View-Controller Pattern.
  * 
  * @author Marco Zanella <mz@openmailbox.org>
  * @copyright 2017 Coro della Joska
