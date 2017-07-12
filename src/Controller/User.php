@@ -44,6 +44,7 @@ class User extends Controller {
     public function post($binders = []) {
         $user = new \Joska\Model\User();
         $user->username = $_POST['username'];
+        $user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $user->name = $_POST['name'];
         $user->surname = $_POST['surname'];
 
@@ -93,6 +94,9 @@ class User extends Controller {
         $mapper = new \Joska\DataMapper\Sql('User');
         $user = $mapper->read($binders['id']);
         $user->username = $_POST['username'];
+        if (isset($_POST['password'])) {
+            $user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        }
         $user->name = $_POST['name'];
         $user->surname = $_POST['surname'];
         $mapper->update($user);

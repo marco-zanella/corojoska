@@ -1,5 +1,6 @@
 <form method="POST" action="users">
     <input type="text" name="username" placeholder="Username">
+    <input type="text" name="password" placeholder="password">
     <input type="text" name="name">
     <input type="text" name="surname">
     <button>Add</button>
@@ -20,6 +21,7 @@ Users:
     <form method="POST" action="users/<?= $user->id ?>">
         <input type="hidden" name="_method" value="PUT">
         <input type="text" name="username" placeholder="Username">
+        <input type="text" name="password" placeholder="password">
         <input type="text" name="name">
         <input type="text" name="surname">
         <button>Update</button>

@@ -251,7 +251,7 @@ class Sql implements DataMapperInterface {
         $where = null;
         $binders = [];
 
-        if (!empty($criter)) {
+        if (!empty($criteria)) {
             $where = $criteria->asPreparedSql();
             $binders = $criteria->getBinders();
         }

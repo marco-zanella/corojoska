@@ -24,19 +24,35 @@
 namespace Joska\DataMapper;
 
 /**
- * A criteria for a data mapper.
+ * A raw SQL criteria.
  * 
  * @author Marco Zanella <mz@openmailbox.org>
  * @copyright 2017 Coro della Joska
  * @package Joska\DataMapper
  */
-interface CriteriaInterface {
+class SqlCriteria implements CriteriaInterface {
+    /**
+     * @var string $query Raw query string
+     * @var arrya $binders Associative array of binders
+     */
+    protected $query, $binders;
+
+
+    public function __construct($query, $binders = []) {
+        $this->query = $query;
+        $this->binders = $binders;
+    }
+
+
+
     /**
      * Returns this criteria as an SQL prepared statement string.
      * 
      * @return string SQL prepared statement string
      */
-    public function asPreparedSql();
+    public function asPreparedSql() {
+        return $this->query;
+    }
 
 
 
@@ -45,5 +61,7 @@ interface CriteriaInterface {
      * 
      * @return array Associative array of binders
      */
-    public function getBinders();
+    public function getBinders() {
+        return $this->binders;
+    }
 }

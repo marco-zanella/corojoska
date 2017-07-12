@@ -118,15 +118,14 @@ class Session {
      * @param string $password Password
      * @return \Joska\Model\User|bool Authenticated user
      * @api
-     * @todo To do!!!
      */
     public static function authenticate($username, $password) {
         self::initialize();
 
         $mapper = new \Joska\DataMapper\Sql('User');
-        $user = $mapper->read(6);
+        $user = $mapper->read(['username' => $username]);
 
-        if (empty($user)) {
+        if (empty($user) || !password_verify($password, $user->password)) {
             return false;
         }
 
