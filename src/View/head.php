@@ -2,7 +2,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title><?php echo $title; ?> | Coro Monte Pasubio</title>
+<title><?php echo $title; ?> | Coro della Joska</title>
 <meta name="description" content="<?php echo $description; ?>">
 <meta name="author" content="Coro della Joska">
 <meta name="keywords" content="coro,joska,rovigo,liceo,<?php echo $title; ?>">
