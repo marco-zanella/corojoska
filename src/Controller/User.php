@@ -36,8 +36,8 @@ namespace Joska\Controller;
 class User extends Controller {
     /**
      * Creates a new user.
-     * 
-     * @param array $binders Associative array of paramters
+     *
+     * @param array $binders Associative array of parameters
      * @return $this This controller itself
      * @api
      */
