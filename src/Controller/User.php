@@ -42,6 +42,8 @@ class User extends Controller {
      * @api
      */
     public function post($binders = []) {
+        \Joska\Session::requirePermission('manage-users');
+
         $user = new \Joska\Model\User();
         $user->username = $_POST['username'];
         $user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -64,6 +66,8 @@ class User extends Controller {
      * @api
      */
     public function get($binders = []) {
+        \Joska\Session::requirePermission('manage-users');
+
         $mapper = new \Joska\DataMapper\Sql('User');
 
         // Shows a specific user if id is set...
@@ -87,6 +91,8 @@ class User extends Controller {
      * @api
      */
     public function put($binders = []) {
+        \Joska\Session::requirePermission('manage-users');
+
         if (!isset($binders['id'])) {
             throw new \Exception("Missing user identifier.");
         }
@@ -114,6 +120,8 @@ class User extends Controller {
      * @api
      */
     public function delete($binders = []) {
+        \Joska\Session::requirePermission('manage-users');
+
         if (!isset($binders['id'])) {
             throw new \Exception("Missing user identifier.");
         }
