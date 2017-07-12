@@ -9,7 +9,16 @@ $_POST['content'] = '<h3>HTML content</h3>';
 // End
 
 error_reporting(E_ALL);
+require_once 'src/error_catcher.php';
 require_once 'src/autoloader.php';
+
+
+
+trigger_error('error msg');
+
+
+
+
 
 $router = new \Joska\Router();
 
