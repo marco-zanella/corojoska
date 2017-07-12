@@ -53,7 +53,7 @@ class User extends Controller {
         $mapper = new \Joska\DataMapper\Sql('User');
         $mapper->create($user);
 
-        return $this->view('user', ['user' => $user]);
+        return $this->view('backend/user', ['user' => $user]);
     }
 
 
@@ -78,7 +78,7 @@ class User extends Controller {
 
         // ... otherwise shows list of users
         $users = $mapper->search();
-        return $this->view('users', ['users' => $users]);
+        return $this->view('backend/users', ['users' => $users]);
     }
 
 
@@ -107,7 +107,7 @@ class User extends Controller {
         $user->surname = $_POST['surname'];
         $mapper->update($user);
 
-        return $this->view('user', ['user' => $user]);
+        return $this->view('backend/user', ['user' => $user]);
     }
 
 
@@ -131,6 +131,6 @@ class User extends Controller {
         $mapper = new \Joska\DataMapper\Sql('User');
         $mapper->delete($id);
         $users = $mapper->search();
-        return $this->view('users', ['users' => $users]);
+        return $this->view('backend/users', ['users' => $users]);
     }
 }
