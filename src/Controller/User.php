@@ -72,8 +72,7 @@ class User extends Controller {
         }
 
         // ... otherwise shows list of users
-        $users = $mapper->read([]);
-
+        $users = $mapper->search();
         return $this->view('users', ['users' => $users]);
     }
 }

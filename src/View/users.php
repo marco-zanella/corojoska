@@ -1,4 +1,4 @@
-<form method="POST" action="user">
+<form method="POST" action="users">
     <input type="text" name="username" placeholder="Username">
     <input type="text" name="name">
     <input type="text" name="surname">

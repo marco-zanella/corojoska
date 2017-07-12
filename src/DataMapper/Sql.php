@@ -230,6 +230,62 @@ class Sql implements DataMapperInterface {
 
 
     /**
+     * Searches models.
+     * 
+     * Returns an array of models satisfying given criteria, or an empty
+     * array if no matches are found. Returns every model if given
+     * criteria is null.
+     * 
+     * @param CriteriaInterface|null $criteria Criteria to match
+     * @param array $order Ordering information
+     * @param int|null $limit Maximum number of results to return
+     * @param int|null $offset Records to skip (only if $limit is specified)
+     * @return array Array of models
+     */
+    public function search(
+        CriteriaInterface $criteria = null,
+        $order = [],
+        $limit = null,
+        $offset = null
+    ) {
+        $where = null;
+        $binders = [];
+
+        if (!empty($criter)) {
+            $where = $criteria->asPreparedSql();
+            $binders = $criteria->getBinders();
+        }
+        
+        $query = $this->prepareSelect(
+            strtolower($this->model_name),
+            '*',
+            $where,
+            $order,
+            $limit,
+            $offset
+        );
+
+        // Prepares statement
+        $stm = $this->dbh->prepare($query);
+
+        // Executes
+        $result = $stm->execute($binders);
+        $this->checkResult($result, $query);
+
+        // Creates models
+        $model_class = '\\Joska\Model\\' . $this->model_name;
+        $models = [];
+        while ($row = $stm->fetchObject($model_class)) {
+            $models[] = $row;
+        }
+
+        return $models;
+    }
+
+
+
+
+    /**
      * Checks result of an SQLite3 prepare, query or excec.
      * 
      * Throws an exception in case of error.

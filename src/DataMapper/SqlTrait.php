@@ -138,8 +138,8 @@ trait SqlTrait {
      * @param string|array $fields Fields to extract
      * @param string|array $where Matching condition
      * @param string|array $order Ordering information
-     * @param int $limit Maximum number of results to return
-     * @param int $offset Records to skip (has effect only if limit is specified)
+     * @param int|null $limit Maximum number of results to return
+     * @param int|null $offset Records to skip (has effect only if limit is specified)
      * @return string Query string to be used in a prepared statement
      */
     protected function prepareSelect(
