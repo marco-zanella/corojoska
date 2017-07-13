@@ -28,4 +28,5 @@ namespace Joska\Model;
  * @package Joska\Model
  */
 class Permission extends Model {
+    protected $_id = ['user_id', 'permission_id'];
 }

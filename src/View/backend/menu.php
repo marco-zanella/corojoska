@@ -9,6 +9,5 @@
     <a href="manage-posts" class="list-group-item">Gestione Articoli</a>
     <a href="manage-events" class="list-group-item">Gestione Eventi</a>
     <a href="users" class="list-group-item">Gestione Utenti</a>
-    <a href="permissions" class="list-group-item">Gestione Permessi</a>
   </div>
 </div>

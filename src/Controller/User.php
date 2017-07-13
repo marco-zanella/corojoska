@@ -69,17 +69,22 @@ class User extends Controller {
         \Joska\Session::requirePermission('manage-users');
 
         $mapper = new \Joska\DataMapper\Sql('User');
+        $permission_mapper = new \Joska\DataMapper\Sql('Permission');
 
         // Shows the user edit page
-        if (isset($binders['id'], $binders['edit']) && $binders['edit'] === 'edit') {
+        if (isset($binders['id'], $binders['mode']) && $binders['mode'] === 'edit') {
             $user = $mapper->read($binders['id']);
-            return $this->view('backend/user-edit', ['user' => $user]);
+            $criteria = new \Joska\DataMapper\SqlCriteria('user_id=:user', ['user' => $user->id]);
+            $permissions = $permission_mapper->search($criteria);
+            return $this->view('backend/user-edit', ['user' => $user, 'permissions' => $permissions]);
         }
 
         // Shows a specific user if id is set...
-        if (isset($binders['id'])) {
+        elseif (isset($binders['id'])) {
             $user = $mapper->read($binders['id']);
-            return $this->view('user', ['user' => $user]);
+            $criteria = new \Joska\DataMapper\SqlCriteria('user_id=:user', ['user' => $user->id]);
+            $permissions = $permission_mapper->search($criteria);
+            return $this->view('backend/user', ['user' => $user, 'permissions' => $permissions]);
         }
 
         // ... otherwise shows list of users
@@ -102,8 +107,11 @@ class User extends Controller {
         if (!isset($binders['id'])) {
             throw new \Exception("Missing user identifier.");
         }
+        
 
         $mapper = new \Joska\DataMapper\Sql('User');
+        $permission_mapper = new \Joska\DataMapper\Sql('Permission');
+
         $user = $mapper->read($binders['id']);
         $user->username = $_POST['username'];
         if (isset($_POST['password'])) {
@@ -113,7 +121,18 @@ class User extends Controller {
         $user->surname = $_POST['surname'];
         $mapper->update($user);
 
-        return $this->view('backend/user', ['user' => $user]);
+        $permission_mapper->delete(['user_id' => $user->id]);
+        $permissions = isset($_POST['permissions']) ? $_POST['permissions'] : [];
+        $new_permissions = [];
+        foreach ($permissions as $permission_id) {
+          $permission = new \Joska\Model\Permission();
+          $permission->user_id = $user->id;
+          $permission->permission_id = $permission_id;
+          $new_permissions[] = $permission;
+          $permission_mapper->create($permission);
+        }
+
+        return $this->view('backend/user', ['user' => $user, 'permissions' => $new_permissions]);
     }
 
 

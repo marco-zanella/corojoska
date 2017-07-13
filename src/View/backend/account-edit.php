@@ -59,7 +59,7 @@
               </div>
 
               <div class="form-group">
-                <label for="inputSurame" class="col-sm-2 control-label">Cognome</label>
+                <label for="inputSurname" class="col-sm-2 control-label">Cognome</label>
                 <div class="col-sm-10">
                   <input type="text" name="surname" value="<?php echo $user->surname; ?>" class="form-control" id="inputSurname" placeholder="Cognome" required>
                 </div>
