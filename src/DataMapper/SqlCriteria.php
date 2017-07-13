@@ -38,6 +38,12 @@ class SqlCriteria implements CriteriaInterface {
     protected $query, $binders;
 
 
+    /**
+     * Constructor.
+     * 
+     * @param string $query Query string
+     * @param array $binders Associative array of binders
+     */
     public function __construct($query, $binders = []) {
         $this->query = $query;
         $this->binders = $binders;
