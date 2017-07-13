@@ -86,6 +86,10 @@ $permission_entry = function ($id, $display_name = null) use($permission_ids) {
                   </div>
 
                   <div class="checkbox">
+                    <label><?php echo $permission_entry('manage-events'); ?></label>
+                  </div>
+
+                  <div class="checkbox">
                     <label><?php echo $permission_entry('manage-users'); ?></label>
                   </div>
                 </div>

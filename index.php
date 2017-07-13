@@ -11,6 +11,7 @@ $router
 
     ->declareRoute('/account/{mode?}', 'Joska\Controller\Account')
     ->declareRoute('/my-posts/{id?}/{mode?}', 'Joska\Controller\MyPosts')
+    ->declareRoute('/manage-events/{id?}/{mode?}', 'Joska\Controller\ManageEvents')
     ->declareRoute('/users/{id?}/{mode?}', 'Joska\Controller\User')
 
     ->declareRoute('/test', 'Joska\Controller\Test')
