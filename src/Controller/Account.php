@@ -74,6 +74,7 @@ class Account extends Controller {
         if (isset($_POST['password'], $_POST['confirm-password']) && $_POST['password'] === $_POST['confirm-password']) {
             $user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         }
+        $user->updated_at = null;
         $mapper->update($user);
 
         return $this->view('backend/account', ['user' => $user]);

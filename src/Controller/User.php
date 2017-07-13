@@ -119,6 +119,7 @@ class User extends Controller {
         }
         $user->name = $_POST['name'];
         $user->surname = $_POST['surname'];
+        $user->updated_at = null;
         $mapper->update($user);
 
         $permission_mapper->delete(['user_id' => $user->id]);
