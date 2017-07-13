@@ -16,13 +16,10 @@
         </aside>
 
         <div class="col-md-9">
-          <div class="alert alert-warning alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <strong>Regola d'oro:</strong> Se non sai cosa stai facendo, non toccare niente!
-          </div>
+          <?php $this->view('alert'); ?>
 
           <p>
-            Da qui puoi gestire gli utenti...
+            Da questa pagina è possibile gestire gli utenti registrati ed aggiungerne di nuovi. Per registrare un nuovo utente, compila il modulo e conferma tramite il pulsante "Aggiungi Utente". Per visualizzare i dati di un utente registrato, modificarne i dati o cancellarne la registrazione, clicca sui pulsanti "visualizza" <span class="glyphicon glyphicon-eye-open"></span>, "modifica" <span class="glyphicon glyphicon-pencil"> o "cancella" <span class="glyphicon glyphicon-trash"> alla riga corrispondente nella tabella utente.
           </p>
 
 
