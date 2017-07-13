@@ -99,7 +99,6 @@ class MyPosts extends Controller {
      * @param array Associative array of additional parameters
      * @return $this This controller itself
      * @api
-     * @todo Image support
      */
     public function put($binders = []) {
         \Joska\Session::requirePermission('publish');
@@ -110,16 +109,31 @@ class MyPosts extends Controller {
 
         $post_id = $binders['id'];
         $mapper = new \Joska\DataMapper\Sql('Post');
-        $post = $data_mapper->read($post_id);
+        $post = $mapper->read($post_id);
 
-        if ($post->author->id != \Joska\Session::getAuthenticaedUser()->id) {
+        if ($post->author_id != \Joska\Session::getAuthenticatedUser()->id) {
             throw new \Exception("You are not the author of this post.");
         }
 
         $post->title = $_POST['title'];
         $post->content = $_POST['content'];
+
+        if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+            $image_extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+            $image_name = strtolower(str_replace(" ", "-", $_POST['title'])) . '-header.' . $image_extension;
+            $image_path = 'public/images/' . $image_name;
+            if (!move_uploaded_file($_FILES['image']['tmp_name'], $image_path)) {
+                throw new \Exception("Cannot upload image.");
+            }
+
+            if (file_exists($post->image)) {
+                unlink($post->image);
+            }
+            $post->image = $image_path;
+        }
+
         $post->updated_at = null;
-        $data_mapper->update($model);
+        $mapper->update($post);
 
         return $this->view('backend/my-posts-edit', ['post' => $post]);
     }

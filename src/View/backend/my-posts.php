@@ -16,8 +16,8 @@
         </aside>
 
         <div class="col-md-9">
-          <p>Qui...</p>
-
+          <p>Da questa pagina è possibile pubblicare nuovi articoli e modificare o cancellare quelli pubblicati. Ogni utente può modificare e cancellare unicamente i propri articoli, ad eccezione dei moderatori che hanno accesso completo agli articoli pubblicati.</p>
+          <p>Per pubblicare un nuovo articolo compila il modulo e conferma con il pulsante "Pubblica Articolo". Per modificare o cancellare un articolo pubblicato, usa i pulsanti "Modifica" <span class="glyphicon glyphicon-pencil"></span> o "Elimina" <span class="glyphicon glyphicon-trash"></span> nella riga della tabella corrispondente all'articolo. La cancellazione è irreversibile!</p>
 
           <section>
             <h2>Inserimento di un nuovo articolo</h2>
@@ -52,32 +52,6 @@
                 <?php endforeach; ?>
               </tbody>
             </table>
-
-
-
-
-
-
-
-
-
-
-            <div class="row">
-              <?php foreach ($posts as $post): ?>
-              <div class="col-md-4">
-                <div class="thumbnail">
-                  <?php $this->view('backend/post-teaser', ['post' => $post]); ?>
-                  <div class="caption text-right">
-                    <div class="btn-group btn-group-sm" role="group">
-                      <button type="button" class="btn btn-default">Left</button>
-                      <button type="button" class="btn btn-default">Middle</button>
-                      <button type="button" class="btn btn-default">Right</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <?php endforeach; ?>
-            </div>
           </section>
         </div>
       </div>
