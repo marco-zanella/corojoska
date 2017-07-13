@@ -25,7 +25,7 @@
 
           <section>
             <h2>Inserimento di un nuovo utente</h2>
-            <form action="users" method="POST" class="form-horizontal">
+            <form action="/users" method="POST" class="form-horizontal">
               <div class="form-group">
                 <label for="inputUsername" class="col-sm-2 control-label">Nome utente</label>
                 <div class="col-sm-10">
@@ -79,11 +79,11 @@
                   <td><?php echo $user->surname; ?></td>
                   <td><?php echo $user->username; ?></td>
                   <td>
-                    <form action="users/<?php echo $user->id; ?>" method="POST">
+                    <form action="/users/<?php echo $user->id; ?>" method="POST">
                       <input type="hidden" name="_method" value="DELETE">
                       <div class="btn-group btn-group-sm">
-                        <a href="users/<?php echo $user->id; ?>" class="btn btn-default" role="button" title="Visualizza"><span class="glyphicon glyphicon-eye-open"></span></a>
-                        <a href="users/<?php echo $user->id; ?>/edit" class="btn btn-default" role="button" title="Visualizza"><span class="glyphicon glyphicon-pencil"></span></a>
+                        <a href="/users/<?php echo $user->id; ?>" class="btn btn-default" role="button" title="Visualizza"><span class="glyphicon glyphicon-eye-open"></span></a>
+                        <a href="/users/<?php echo $user->id; ?>/edit" class="btn btn-default" role="button" title="Visualizza"><span class="glyphicon glyphicon-pencil"></span></a>
                         <button class="btn btn-danger" role="button" title="Elimina"><span class="glyphicon glyphicon-trash"></span></button>
                       </div>
                     </form>

@@ -53,7 +53,7 @@ class User extends Controller {
         $mapper = new \Joska\DataMapper\Sql('User');
         $mapper->create($user);
 
-        return $this->view('backend/user', ['user' => $user]);
+        return $this->view('backend/user', ['user' => $user, 'permissions' => []]);
     }
 
 
@@ -155,6 +155,10 @@ class User extends Controller {
 
         $mapper = new \Joska\DataMapper\Sql('User');
         $mapper->delete($id);
+
+        $permission_mapper = new \Joska\DataMapper\Sql('Permission');
+        $permission_mapper->delete(['user_id' => $id]);
+
         $users = $mapper->search();
         return $this->view('backend/users', ['users' => $users]);
     }

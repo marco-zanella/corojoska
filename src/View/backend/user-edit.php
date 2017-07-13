@@ -26,8 +26,8 @@ $permission_entry = function ($id, $display_name = null) use($permission_ids) {
       </div>
 
       <ul class="breadcrumb">
-        <li><a href="../../users">Gestione Utenti</a></li>
-        <li><a href="../<?php echo $user->id; ?>"><?php echo $user->name . ' ' . $user->surname; ?></a></li>
+        <li><a href="/users">Gestione Utenti</a></li>
+        <li><a href="/users/<?php echo $user->id; ?>"><?php echo $user->name . ' ' . $user->surname; ?></a></li>
         <li class="active">Modifica</li>
       </ul>
 
@@ -43,7 +43,7 @@ $permission_entry = function ($id, $display_name = null) use($permission_ids) {
             <p>Da questa pagina è possibile modificare le informazioni dell'utente <?php echo $user->name . ' ' . $user->surname; ?>, inclusi i permessi.</p>
 
             <h2>Modifica Dettagli Account</h2>
-            <form action="../<?php echo $user->id; ?>" method="POST" class="form-horizontal">
+            <form action="/users/<?php echo $user->id; ?>" method="POST" class="form-horizontal">
               <input type="hidden" name="_method" value="PUT">
 
               <div class="form-group">

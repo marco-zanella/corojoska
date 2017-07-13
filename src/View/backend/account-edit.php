@@ -11,7 +11,7 @@
       </div>
 
       <ol class="breadcrumb">
-        <li><a href="../account">Account Personale</a></li>
+        <li><a href="/account">Account Personale</a></li>
         <li class="active">Modifica Informazioni</li>
       </ol>
 
@@ -27,7 +27,7 @@
             <p>Da questa pagina è possibile modificare le informazioni associate al proprio account personale. Alcune informazioni, come il nome utente, non sono modificabili.</p>
             <p><strong>Modifica della password:</strong> Per modificare la password, compilare i campi "password" e "conferma" password. Lasciandoli vuoti, la password non verrà modificata.</p>
 
-            <form action="../account" method="POST" class="form-horizontal">
+            <form action="/account" method="POST" class="form-horizontal">
               <input type="hidden" name="_method" value="PUT">
 
               <div class="form-group">

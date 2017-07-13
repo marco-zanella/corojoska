@@ -11,7 +11,7 @@
       </div>
 
       <ul class="breadcrumb">
-        <li><a href="../users">Gestione Utenti</a></li>
+        <li><a href="/users">Gestione Utenti</a></li>
         <li class="active"><?php echo $user->name . ' ' . $user->surname; ?></li>
       </ul>
 
@@ -45,7 +45,7 @@
               </dd>
             </dl>
 
-            <a href="<?php echo $user->id; ?>/edit" class="btn btn-primary btn-block" role="button">Modifica Informazioni</a>
+            <a href="/users/<?php echo $user->id; ?>/edit" class="btn btn-primary btn-block" role="button">Modifica Informazioni</a>
           </section>
         </div>
       </div>

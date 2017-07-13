@@ -31,7 +31,7 @@
               <dd><?php echo $user->surname; ?></dd>
             </dl>
 
-            <a href="account/edit" class="btn btn-primary btn-block" role="button">Modifica Informazioni</a>
+            <a href="/account/edit" class="btn btn-primary btn-block" role="button">Modifica Informazioni</a>
           </section>
         </div>
       </div>
