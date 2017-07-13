@@ -18,7 +18,7 @@
         <div class="col-md-9">
           <section>
             <h2>Dettagli Account</h2>
-            <p>Da questa pagina è possibile visualizzare un riepilogo del proprio account personale. Per modificare le informazioni del proprio account, utilizzar il pulsante "Modifica Informazioni".</p>
+            <p>Da questa pagina è possibile visualizzare un riepilogo del proprio account personale. Per modificare le informazioni del proprio account, utilizzare il pulsante "Modifica Informazioni".</p>
 
             <dl class="dl-horizontal">
               <dt>Nome utente</dt>
