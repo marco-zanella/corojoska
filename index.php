@@ -10,6 +10,7 @@ $router
     ->declareRoute('/login', 'Joska\Controller\Session')
 
     ->declareRoute('/account/{mode?}', 'Joska\Controller\Account')
+    ->declareRoute('/my-posts/{id?}/{mode?}', 'Joska\Controller\MyPosts')
     ->declareRoute('/users/{id?}/{mode?}', 'Joska\Controller\User')
 
     ->declareRoute('/test', 'Joska\Controller\Test')

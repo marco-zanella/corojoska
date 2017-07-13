@@ -42,7 +42,7 @@ class Image extends Controller {
      * @api
      */
     public function get($binders = []) {
-        $path = urldecode($binders['path']);
+        $path = str_replace("|", "/", urldecode($binders['path']));
 
         $img_gd = \Joska\Image::createfromstring(file_get_contents($path));
         $img = new \Joska\Image($img_gd);

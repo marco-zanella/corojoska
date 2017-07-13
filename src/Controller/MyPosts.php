@@ -1,0 +1,158 @@
+<?php
+/**
+ * This file is part of Corojoska.
+ *
+ * Corojoska is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Corojoska is distributed under the hope it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Corojoska. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * PHP version 5
+ *
+ * @author    Marco Zanella <mz@openmailbox.org>
+ * @copyright 2017 Coro della Joska
+ * @license   GNU General Public License, version 3
+ */
+namespace Joska\Controller;
+
+/**
+ * Controller for a blog post.
+ * 
+ * This class follows the Model-View-Controller Pattern and exhibits
+ * a Fluent Interface.
+ * 
+ * @author Marco Zanella <mz@openmailbox.org>
+ * @copyright 2017 Coro della Joska
+ * @package Joska\Controller
+ */
+class MyPosts extends Controller {
+    /**
+     * Creates a new post.
+     * 
+     * @param array Associative array of additional parameters
+     * @return $this This controller itself
+     * @api
+     */
+    public function post($binders = []) {
+        \Joska\Session::requirePermission('publish');
+
+        $data_mapper = new \Joska\DataMapper\Sql('Post');
+
+        $post = new \Joska\Model\Post();
+        $post->title = $_POST['title'];
+        $post->content = $_POST['content'];
+
+        $image_extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+        $image_name = strtolower(str_replace(" ", "-", $_POST['title'])) . '-header.' . $image_extension;
+        $image_path = 'public/images/' . $image_name;
+        if (!move_uploaded_file($_FILES['image']['tmp_name'], $image_path)) {
+            throw new \Exception("Cannot upload image.");
+        }
+        $post->image = $image_path;
+
+        $post->author = \Joska\Session::getAuthenticatedUser();
+        $data_mapper->create($post);
+
+        header('Location: /my-posts');
+    }
+
+
+
+    /**
+     * Returns list of posts or edit form.
+     * 
+     * @param array Associative array of additional parameters
+     * @return $this This controller itself
+     * @api
+     */
+    public function get($binders = []) {
+        \Joska\Session::requirePermission('publish');
+
+        $mapper = new \Joska\DataMapper\Sql('Post');
+
+        // Edit post form
+        if (isset($binders['id'], $binders['mode']) && $binders['mode'] === 'edit') {
+            $post_id = $binders['id'];
+            $post = $mapper->read($post_id);
+
+            return $this->view('backend/my-posts-edit', ['post' => $post]);
+        }
+
+        // List of posts
+        $posts = $mapper->search();
+        return $this->view('backend/my-posts', ['posts' => $posts]);
+    }
+
+
+
+    /**
+     * Updates a post.
+     * 
+     * @param array Associative array of additional parameters
+     * @return $this This controller itself
+     * @api
+     * @todo Image support
+     */
+    public function put($binders = []) {
+        \Joska\Session::requirePermission('publish');
+
+        if (!isset($binders['id'])) {
+            throw new \Exception("Missing post identifier.");
+        }
+
+        $post_id = $binders['id'];
+        $mapper = new \Joska\DataMapper\Sql('Post');
+        $post = $data_mapper->read($post_id);
+
+        if ($post->author->id != \Joska\Session::getAuthenticaedUser()->id) {
+            throw new \Exception("You are not the author of this post.");
+        }
+
+        $post->title = $_POST['title'];
+        $post->content = $_POST['content'];
+        $post->updated_at = null;
+        $data_mapper->update($model);
+
+        return $this->view('backend/my-posts-edit', ['post' => $post]);
+    }
+
+
+
+    /**
+     * Deletes a post.
+     * 
+     * @param array Associative array of additional parameters
+     * @return $this This controller itself
+     * @api
+     */
+    public function delete($binders = []) {
+        \Joska\Session::requirePermission('publish');
+
+        if (!isset($binders['id'])) {
+            throw new \Exception("Missing post identifier.");
+        }
+
+        $post_id = $binders['id'];
+        $mapper = new \Joska\DataMapper\Sql('Post');
+        $post = $mapper->read($post_id);
+
+        if ($post->author_id != \Joska\Session::getAuthenticatedUser()->id) {
+            throw new \Exception("You are not the author of this post.");
+        }
+
+        $mapper->delete($post_id);
+        if (file_exists($post->image)) {
+            unlink($post->image);
+        }
+
+        header('Location: /my-posts');
+    }
+}
