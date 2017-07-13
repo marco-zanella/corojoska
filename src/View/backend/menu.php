@@ -4,10 +4,11 @@
   </div>
   
   <div class="list-group">
+    <a href="account" class="list-group-item">Il mio Account</a>
+    <a href="my-posts" class="list-group-item">I miei Articoli</a>
+    <a href="manage-posts" class="list-group-item">Gestione Articoli</a>
+    <a href="manage-events" class="list-group-item">Gestione Eventi</a>
     <a href="users" class="list-group-item">Gestione Utenti</a>
-
-    <a href="#" class="list-group-item">Morbi leo risus</a>
-    <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-    <a href="#" class="list-group-item">Vestibulum at eros</a>
+    <a href="permissions" class="list-group-item">Gestione Permessi</a>
   </div>
 </div>
