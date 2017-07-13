@@ -86,6 +86,7 @@
                       <input type="hidden" name="_method" value="DELETE">
                       <div class="btn-group btn-group-sm">
                         <a href="users/<?php echo $user->id; ?>" class="btn btn-default" role="button" title="Visualizza"><span class="glyphicon glyphicon-eye-open"></span></a>
+                        <a href="users/<?php echo $user->id; ?>/edit" class="btn btn-default" role="button" title="Visualizza"><span class="glyphicon glyphicon-pencil"></span></a>
                         <button class="btn btn-danger" role="button" title="Elimina"><span class="glyphicon glyphicon-trash"></span></button>
                       </div>
                     </form>

@@ -9,7 +9,7 @@ $router = new \Joska\Router();
 $router
     ->declareRoute('/login', 'Joska\Controller\Session')
 
-    ->declareRoute('/users/{id?}', 'Joska\Controller\User')
+    ->declareRoute('/users/{id?}/{edit?}', 'Joska\Controller\User')
 
     ->declareRoute('/test', 'Joska\Controller\Test')
     ->declareRoute('/post/{id}', 'Joska\Controller\Post')

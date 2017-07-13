@@ -59,7 +59,7 @@ class User extends Controller {
 
 
     /**
-     * Shows an user or user list.
+     * Shows a user, user list or user edit page.
      * 
      * @param array $binders Associative array of binders
      * @return $this This controller itself
@@ -69,6 +69,12 @@ class User extends Controller {
         \Joska\Session::requirePermission('manage-users');
 
         $mapper = new \Joska\DataMapper\Sql('User');
+
+        // Shows the user edit page
+        if (isset($binders['id'], $binders['edit']) && $binders['edit'] === 'edit') {
+            $user = $mapper->read($binders['id']);
+            return $this->view('backend/user-edit', ['user' => $user]);
+        }
 
         // Shows a specific user if id is set...
         if (isset($binders['id'])) {
