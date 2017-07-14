@@ -14,7 +14,5 @@ $router
     ->declareRoute('/manage-events/{id?}/{mode?}', 'Joska\Controller\ManageEvents')
     ->declareRoute('/users/{id?}/{mode?}', 'Joska\Controller\User')
 
-    ->declareRoute('/test', 'Joska\Controller\Test')
-    ->declareRoute('/post/{id}', 'Joska\Controller\Post')
     ->declareRoute('/image/{path}/{width}/{height}/{extension?}', 'Joska\Controller\Image')
 ;
