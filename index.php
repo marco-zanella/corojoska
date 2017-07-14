@@ -7,16 +7,16 @@ require_once 'src/autoloader.php';
 $router = new \Joska\Router();
 
 $router
-    // Front end
-    ->declareRoute('/login', 'Joska\Controller\Session')
+// Front end
+->declareRoute('/login', 'Joska\Controller\Session')
 
-    // Backend
-    ->declareRoute('/account/{mode?}', 'Joska\Controller\Account')
-    ->declareRoute('/my-posts/{id?}/{mode?}', 'Joska\Controller\MyPosts')
-    ->declareRoute('/manage-posts/{id?}/{mode?}', 'Joska\Controller\ManagePosts')
-    ->declareRoute('/manage-events/{id?}/{mode?}', 'Joska\Controller\ManageEvents')
-    ->declareRoute('/users/{id?}/{mode?}', 'Joska\Controller\User')
+// Backend
+->declareRoute('/account/{mode?}', 'Joska\Controller\Account')
+->declareRoute('/my-posts/{id?}/{mode?}', 'Joska\Controller\MyPosts')
+->declareRoute('/manage-posts/{id?}/{mode?}', 'Joska\Controller\ManagePosts')
+->declareRoute('/manage-events/{id?}/{mode?}', 'Joska\Controller\ManageEvents')
+->declareRoute('/users/{id?}/{mode?}', 'Joska\Controller\User')
 
-    // Miscellaneous and utitilies
-    ->declareRoute('/image/{path}/{width}/{height}/{extension?}', 'Joska\Controller\Image')
+// Miscellaneous and utitilies
+->declareRoute('/image/{path}/{width}/{height}/{extension?}', 'Joska\Controller\Image')
 ;
