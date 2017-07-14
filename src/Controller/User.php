@@ -74,7 +74,7 @@ class User extends Controller {
         // Shows the user edit page
         if (isset($binders['id'], $binders['mode']) && $binders['mode'] === 'edit') {
             $user = $mapper->read($binders['id']);
-            $criteria = new \Joska\DataMapper\SqlCriteria('user_id=:user', ['user' => $user->id]);
+            $criteria = new \Joska\DataMapper\MatchCriteria\Sql('user_id=:user', ['user' => $user->id]);
             $permissions = $permission_mapper->search($criteria);
             return $this->view('backend/user-edit', ['user' => $user, 'permissions' => $permissions]);
         }
@@ -82,7 +82,7 @@ class User extends Controller {
         // Shows a specific user if id is set...
         elseif (isset($binders['id'])) {
             $user = $mapper->read($binders['id']);
-            $criteria = new \Joska\DataMapper\SqlCriteria('user_id=:user', ['user' => $user->id]);
+            $criteria = new \Joska\DataMapper\MatchCriteria\Sql('user_id=:user', ['user' => $user->id]);
             $permissions = $permission_mapper->search($criteria);
             return $this->view('backend/user', ['user' => $user, 'permissions' => $permissions]);
         }

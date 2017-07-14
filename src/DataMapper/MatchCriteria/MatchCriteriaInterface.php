@@ -21,44 +21,22 @@
  * @copyright 2017 Coro della Joska
  * @license   GNU General Public License, version 3
  */
-namespace Joska\DataMapper;
+namespace Joska\DataMapper\MatchCriteria;
 
 /**
- * A raw SQL criteria.
+ * Matching criteria for a data mapper.
  * 
  * @author Marco Zanella <mz@openmailbox.org>
  * @copyright 2017 Coro della Joska
  * @package Joska\DataMapper
  */
-class SqlCriteria implements CriteriaInterface {
-    /**
-     * @var string $query Raw query string
-     * @var arrya $binders Associative array of binders
-     */
-    protected $query, $binders;
-
-
-    /**
-     * Constructor.
-     * 
-     * @param string $query Query string
-     * @param array $binders Associative array of binders
-     */
-    public function __construct($query, $binders = []) {
-        $this->query = $query;
-        $this->binders = $binders;
-    }
-
-
-
+interface MatchCriteriaInterface {
     /**
      * Returns this criteria as an SQL prepared statement string.
      * 
      * @return string SQL prepared statement string
      */
-    public function asPreparedSql() {
-        return $this->query;
-    }
+    public function asPreparedSql();
 
 
 
@@ -67,7 +45,5 @@ class SqlCriteria implements CriteriaInterface {
      * 
      * @return array Associative array of binders
      */
-    public function getBinders() {
-        return $this->binders;
-    }
+    public function getBinders();
 }

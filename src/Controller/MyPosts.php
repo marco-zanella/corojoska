@@ -88,7 +88,7 @@ class MyPosts extends Controller {
 
         // List of posts
         $user = \Joska\Session::getAuthenticatedUser();
-        $criteria = new \Joska\DataMapper\SqlCriteria('author_id=:author_id', [':author_id' => $user->id]);
+        $criteria = new \Joska\DataMapper\MatchCriteria\Sql('author_id=:author_id', [':author_id' => $user->id]);
         $posts = $mapper->search($criteria, ['created_at' => 'desc']);
         return $this->view('backend/my-posts', ['posts' => $posts]);
     }

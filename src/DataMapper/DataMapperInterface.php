@@ -86,14 +86,14 @@ interface DataMapperInterface {
      * Returns an array of models satisfying given criteria, or an empty
      * array if no matches are found.
      * 
-     * @param CriteriaInterface $criteria Criteria to match
+     * @param MatchCriteria\MatchCriteriaInterface|null $criteria Criteria to match
      * @param array $order Ordering information
      * @param int|null $limit Maximum number of results to return
      * @param int|null $offset Records to skip (only if $limit is specified)
      * @return array Array of models
      */
     public function search(
-        CriteriaInterface $criteria,
+        MatchCriteria\MatchCriteriaInterface $criteria = null,
         $order = [],
         $limit = null,
         $offset = null
