@@ -1,4 +1,7 @@
-<form action="/my-posts/<?php echo $post->id; ?>" method="POST" enctype="multipart/form-data">
+<?php
+$action = (isset($target) ? $target : '/my-posts') . '/' . $post->id . '/edit';
+?>
+<form action="<?php echo $action; ?>" method="POST" enctype="multipart/form-data">
   <input type="hidden" name="_method" value="PUT">
 
   <div class="form-group">
