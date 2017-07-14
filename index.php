@@ -8,6 +8,7 @@ $router = new \Joska\Router();
 
 $router
 // Front end
+->declareRoute('/', 'Joska\Controller\Home')
 ->declareRoute('/login', 'Joska\Controller\Session')
 
 // Backend
