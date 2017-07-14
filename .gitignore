@@ -2,3 +2,4 @@ config.ini
 doc/phpdoc
 doc/graphics
 doc/documents
+public/images
