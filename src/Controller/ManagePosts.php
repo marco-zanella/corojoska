@@ -51,6 +51,10 @@ class ManagePosts extends Controller {
             $id = $binders['id'];
             $post = $mapper->read($id);
 
+            if (empty($post)) {
+                return $this->view('backend/404');
+            }
+
             return $this->view('backend/manage-posts-edit', ['post' => $post]);
         }
 

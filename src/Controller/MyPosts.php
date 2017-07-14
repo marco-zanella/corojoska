@@ -83,6 +83,10 @@ class MyPosts extends Controller {
             $post_id = $binders['id'];
             $post = $mapper->read($post_id);
 
+            if (empty($post)) {
+                return $this->view('backend/404');
+            }
+
             return $this->view('backend/my-posts-edit', ['post' => $post]);
         }
 

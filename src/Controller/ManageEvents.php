@@ -86,6 +86,10 @@ class ManageEvents extends Controller {
             $id = $binders['id'];
             $event = $mapper->read($id);
 
+            if (empty($event)) {
+                return $this->view('backend/404');
+            }
+
             return $this->view('backend/manage-events-edit', ['event' => $event]);
         }
 
