@@ -9,10 +9,18 @@
   </head>
 
   <body>
-    Hello world
+    <h1>Test Page</h1>
+    <p>This will be the homepage. Until then, it will serve as test page.</p>
+
+<div class="container">
+<div class="row">
     <?php foreach ($posts as $post): ?>
-    <?php $this->view('widgets/post-teaser', ['post' => $post]); ?>
+<div class="col-md-4">
+    <?php $this->view('widgets/post-thumbnail', ['post' => $post]); ?>
+</div>
     <?php endforeach; ?>
+</div>
+</div>
 
     <?php $this->view('scripts'); ?>
   </body>
