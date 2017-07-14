@@ -1,6 +1,7 @@
 .teaser {
   position: relative;
   overflow: hidden;
+  margin: 0.2em 0.1em 0.5em 0.1em;
 }
 
 .teaser img {
@@ -12,15 +13,20 @@
   position: absolute;
   background: rgba(0, 0, 0, 0.5);
   color: white;
-  bottom: 1em;
+  bottom: 5%;
   left: 0;
   width: 100%;
-  padding: 0.1em 1em;
+  padding: 0em 2%;
   transition: 0.5s;
 }
 
 .teaser:hover .teaser-info {
   background: rgba(0, 0, 0, 0.8);
+}
+
+
+.teaser .teaser-info h4 {
+  margin-bottom: 0;
 }
 
 
