@@ -42,6 +42,9 @@ class Home extends Controller {
      * @api
      */
     public function get($binders = []) {
-        return $this->view('widgets/alert');
+        $mapper = new \Joska\DataMapper\Sql('Post');
+        $posts = $mapper->search(null, ['created_at' => 'desc'], 10);
+
+        return $this->view('frontend/homepage', ['posts' => $posts]);
     }
 }
