@@ -16,11 +16,11 @@
       </ul>
 
       <div class="row">
-        <aside class="col-md-3">
+        <aside class="col-sm-3">
           <?php $this->view('backend/menu', $_variables); ?>
         </aside>
 
-        <div class="col-md-9">
+        <div class="col-sm-9">
           <section>
             <p>Da questa pagina è possibile visualizzare un riepilogo dell'account personale di <?php echo $user->name . ' ' . $user->surname; ?>, inclusi i permessi. Per modificare le informazioni od i permessi relativi all'account, utilizzare il pulsante "Modifica Informazioni".</p>
 

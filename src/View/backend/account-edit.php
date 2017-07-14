@@ -16,11 +16,11 @@
       </ol>
 
       <div class="row">
-        <aside class="col-md-3">
+        <aside class="col-sm-3">
           <?php $this->view('backend/menu', $_variables); ?>
         </aside>
 
-        <div class="col-md-9">
+        <div class="col-sm-9">
           <section>
 
             <h2>Modifica Informazioni Account</h2>

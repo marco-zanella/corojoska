@@ -11,11 +11,11 @@
       </div>
 
       <div class="row">
-        <aside class="col-md-3">
+        <aside class="col-sm-3">
           <?php $this->view('backend/menu', $_variables); ?>
         </aside>
 
-        <div class="col-md-9">
+        <div class="col-sm-9">
           <p>Da questa pagina è possibile pubblicare nuovi eventi e modificare o cancellare quelli esistenti. Per inserire un nuovo evento, compila il modulo e conferma con il pulsante "Inserisci Evento". Per modificare o cancellare un evento, usa i pulsanti "Modifica" <span class="glyphicon glyphicon-pencil"></span> o "Elimina" <span class="glyphicon glyphicon-trash"></span> nella riga della tabella corrispondente all'evento. La cancellazione è irreversibile!</p>
 
           <section>

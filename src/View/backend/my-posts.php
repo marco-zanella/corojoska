@@ -11,11 +11,11 @@
       </div>
 
       <div class="row">
-        <aside class="col-md-3">
+        <aside class="col-sm-3">
           <?php $this->view('backend/menu', $_variables); ?>
         </aside>
 
-        <div class="col-md-9">
+        <div class="col-sm-9">
           <p>Da questa pagina è possibile pubblicare nuovi articoli e modificare o cancellare quelli pubblicati. Ogni utente può modificare e cancellare unicamente i propri articoli, ad eccezione dei moderatori che hanno accesso completo agli articoli pubblicati.</p>
           <p>Per pubblicare un nuovo articolo compila il modulo e conferma con il pulsante "Pubblica Articolo". Per modificare o cancellare un articolo pubblicato, usa i pulsanti "Modifica" <span class="glyphicon glyphicon-pencil"></span> o "Elimina" <span class="glyphicon glyphicon-trash"></span> nella riga della tabella corrispondente all'articolo. La cancellazione è irreversibile!</p>
 

@@ -11,11 +11,11 @@
       </div>
 
       <div class="row">
-        <aside class="col-md-3">
+        <aside class="col-sm-3">
           <?php $this->view('backend/menu', $_variables); ?>
         </aside>
 
-        <div class="col-md-9">
+        <div class="col-sm-9">
           <section>
             <h2>Dettagli Account</h2>
             <p>Da questa pagina è possibile visualizzare un riepilogo del proprio account personale. Per modificare le informazioni del proprio account, utilizzare il pulsante "Modifica Informazioni".</p>
