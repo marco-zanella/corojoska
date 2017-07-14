@@ -71,7 +71,7 @@ class Account extends Controller {
         $user = \Joska\Session::getAuthenticatedUser();
         $user->name = $_POST['name'];
         $user->surname = $_POST['surname'];
-        if (isset($_POST['password'], $_POST['confirm-password']) && $_POST['password'] === $_POST['confirm-password']) {
+        if (isset($_POST['password'], $_POST['password-confirm']) && !empty($_POST['password']) && $_POST['password'] === $_POST['password-confirm']) {
             $user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         }
         $user->updated_at = null;

@@ -114,7 +114,7 @@ class User extends Controller {
 
         $user = $mapper->read($binders['id']);
         $user->username = $_POST['username'];
-        if (isset($_POST['password'])) {
+        if (isset($_POST['password']) && !empty($_POST['password'])) {
             $user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         }
         $user->name = $_POST['name'];
