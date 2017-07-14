@@ -16,7 +16,7 @@
         </aside>
 
         <div class="col-sm-9">
-          <?php $this->view('alert'); ?>
+          <?php $this->view('widgets/alert'); ?>
 
           <p>
             Da questa pagina è possibile gestire gli utenti registrati ed aggiungerne di nuovi. Per registrare un nuovo utente, compila il modulo e conferma tramite il pulsante "Aggiungi Utente". Per visualizzare i dati di un utente registrato, modificarne i dati o cancellarne la registrazione, clicca sui pulsanti "visualizza" <span class="glyphicon glyphicon-eye-open"></span>, "modifica" <span class="glyphicon glyphicon-pencil"> o "cancella" <span class="glyphicon glyphicon-trash"> alla riga corrispondente nella tabella utente.

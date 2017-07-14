@@ -37,7 +37,7 @@ $permission_entry = function ($id, $display_name = null) use($permission_ids) {
         </aside>
 
         <div class="col-sm-9">
-          <?php $this->view('alert'); ?>
+          <?php $this->view('widgets/alert'); ?>
 
           <section>
             <p>Da questa pagina è possibile modificare le informazioni dell'utente <?php echo $user->name . ' ' . $user->surname; ?>, inclusi i permessi.</p>
