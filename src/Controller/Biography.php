@@ -42,6 +42,6 @@ class Biography extends Controller {
      * @api
      */
     public function get($binders = []) {
-        return $this->view('frontend/biography');
+        return $this->view('frontend/biography-page');
     }
 }

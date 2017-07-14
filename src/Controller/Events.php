@@ -49,7 +49,7 @@ class Events extends Controller {
             $event = $mapper->read($binders['id']);
 
             if (empty($event)) {
-                return $this->view('frontend/404.php');
+                return $this->view('frontend/404');
             }
             return $this->view('frontend/event-page', ['event' => $event]);
         }
