@@ -6,10 +6,18 @@
   
     <div class="list-group">
       <a href="/account" class="list-group-item">Il mio Account</a>
+      <?php if (\Joska\Session::hasPermission('publish')): ?>
       <a href="/my-posts" class="list-group-item">I miei Articoli</a>
+      <?php endif; ?>
+      <?php if (\Joska\Session::hasPermission('manage-posts')): ?>
       <a href="/manage-posts" class="list-group-item">Gestione Articoli</a>
+      <?php endif; ?>
+      <?php if (\Joska\Session::hasPermission('manage-events')): ?>
       <a href="/manage-events" class="list-group-item">Gestione Eventi</a>
+      <?php endif; ?>
+      <?php if (\Joska\Session::hasPermission('manage-users')): ?>
       <a href="/users" class="list-group-item">Gestione Utenti</a>
+      <?php endif; ?>
     </div>
   </div>
 </div>
@@ -33,10 +41,18 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li><a href="/account">Il mio Account</a></li>
+          <?php if (\Joska\Session::hasPermission('publish')): ?>
           <li><a href="/my-posts">I miei Articoli</a></li>
+          <?php endif; ?>
+          <?php if (\Joska\Session::hasPermission('manage-posts')): ?>
           <li><a href="/manage-posts">Gestione Articoli</a></li>
+          <?php endif; ?>
+          <?php if (\Joska\Session::hasPermission('manage-events')): ?>
           <li><a href="/manage-events">Gestione Eventi</a></li>
+          <?php endif; ?>
+          <?php if (\Joska\Session::hasPermission('manage-users')): ?>
           <li><a href="/users">Gestione Utenti</a></li>
+          <?php endif; ?>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
