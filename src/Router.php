@@ -91,6 +91,9 @@ class Router {
         $pieces = array_reduce($pieces, 'array_merge', []);
         $regexp = '/' . implode('', array_values($pieces)) . '$/';
 
+        // Removes query string
+        $requested_uri = parse_url($requested_uri, PHP_URL_PATH);
+
         // Returns false if the URI does not match
         if (preg_match($regexp, $requested_uri, $matches) === 0) {
             return false;
