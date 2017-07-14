@@ -12,15 +12,12 @@
     <h1>Test Page</h1>
     <p>This will be the homepage. Until then, it will serve as test page.</p>
 
-<div class="container">
-<div class="row">
-    <?php foreach ($posts as $post): ?>
-<div class="col-md-4">
-    <?php $this->view('widgets/post-thumbnail', ['post' => $post]); ?>
-</div>
+<?php
+$events = (new \Joska\DataMapper\Sql('Event'))->search();
+?>
+    <?php foreach ($events as $event): ?>
+    <?php $this->view('widgets/event-list-item', ['event' => $event]); ?>
     <?php endforeach; ?>
-</div>
-</div>
 
     <?php $this->view('scripts'); ?>
   </body>
