@@ -55,7 +55,7 @@ class Session extends Controller {
             header('Location: ' . $_POST['redirect_to']);
         }
 
-        return $this->view('backend/account', ['user' => $user]);
+        header('Location: /account');
     }
 
 
@@ -68,12 +68,7 @@ class Session extends Controller {
      * @api
      */
     public function get($binders = []) {
-        if (!\Joska\Session::isAuthenticated()) {
-            return $this->view('frontend/login');
-        }
-        else {
-            return $this->view('frontend/logout');
-        }
+        return !\Joska\Session::isAuthenticated() ? $this->view('frontend/login') : $this->view('frontend/logout');
     }
 
 
@@ -92,6 +87,6 @@ class Session extends Controller {
             header('Location: ' . $_POST['redirect_to']);
         }
 
-        return $this->view('frontend/login');
+        header('Location: /login');
     }
 }
