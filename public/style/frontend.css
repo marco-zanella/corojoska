@@ -27,10 +27,10 @@ body {
 
 
 footer {
-  background: #232323;
-  background: -moz-linear-gradient(top, #232323 0%, #353535 29%, #2f2f2f 100%);
-  background: -webkit-linear-gradient(top, #232323 0%,#353535 29%,#2f2f2f 100%);
-  background: linear-gradient(to bottom, #232323 0%,#353535 29%,#2f2f2f 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#232323', endColorstr='#2f2f2f',GradientType=0 );
+  background: #194eb2; /* Old browsers */
+  background: -moz-linear-gradient(top, #194eb2 0%, #295aaa 30%, #194eae 100%);
+  background: -webkit-linear-gradient(top, #194eb2 0%,#295aaa 30%,#194eae 100%);
+  background: linear-gradient(to bottom, #194eb2 0%,#295aaa 30%,#194eae 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#194eb2', endColorstr='#194eae',GradientType=0 );
   color: #EEE;
 }
