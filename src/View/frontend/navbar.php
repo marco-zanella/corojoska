@@ -42,7 +42,9 @@ $active = function ($name) use($section) {
           <a href="/account">Area Riservata <span class="glyphicon glyphicon-user hidden-sm"></span></a>
         </li>
         <?php else: ?>
-        <li<?= $active('accedi') ?>><a href="/login">Accedi</a></li>
+        <li<?= $active('accedi') ?>>
+          <a href="/login">Accedi <span class="glyphicon glyphicon-log-in hidden-sm"></span></a>
+        </li>
         <?php endif; ?>
       </ul>
     </div><!-- /.navbar-collapse -->

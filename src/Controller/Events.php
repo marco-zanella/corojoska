@@ -64,9 +64,10 @@ class Events extends Controller {
         }
 
         // Shows events list
-        $events = $mapper->search(null, ['date' => 'desc']);
+        $criteria = new \Joska\DataMapper\MatchCriteria\Sql('date <= NOW()', []);
+        $past_events = $mapper->search($criteria, ['date' => 'desc']);
         return $this->view('frontend/events-page', [
-            'events' => $events,
+            'past_events' => $past_events,
             'upcoming_events' => $upcoming_events,
             'latest_posts' => $latest_posts
         ]);
