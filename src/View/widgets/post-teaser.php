@@ -2,7 +2,7 @@
 $width = isset($width) ? $width : 400;
 $height = isset($height) ? $height : 200;
 
-$img_url = urlencode(str_replace("/", "|", $post->image))
+$img_url = '/image/' . urlencode(str_replace("/", "|", $post->image))
           . '/' . $width . '/' . $height;
 $date = date('d/m/Y, H:i', strtotime($post->created_at));
 ?>

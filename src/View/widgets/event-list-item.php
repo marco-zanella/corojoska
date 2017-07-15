@@ -10,13 +10,6 @@ else:
   $img_url = '/image/' . urlencode(str_replace("/", "|", realpath("public/style/teaser-background.png")))
            . '/' . $width . '/' . $height;
 endif;
-$date = date('d/m/Y', strtotime($event->created_at));
-$time = date('H:i', strtotime($event->created_at));
-
-$description = strip_tags($event->description);
-if (strlen($description) > $length):
-  $description = substr($description, 0, $length - 3) . "...";
-endif;
 ?>
 <article class="media" itemscope itemtype="http://schema.org/MusicEvent">
   <div class="media-left media-middle">
@@ -26,7 +19,11 @@ endif;
   </div>
   <div class="media-body">
     <h4 class="media-heading" itemprop="name"><?= $event->name ?></h4>
-    <div itemprop="description"><?= $description ?></div>
+    <div itemprop="description"><?= $event->getSummary($length) ?></div>
     <a href="/calendario/<?= $event->id ?>">Leggi tutto</a>
+    <span class="hidden">
+      <time itemprop="startDate"><?= $event->date ?></time>
+      <span itemptop="location"><?= $event->place ?></span>
+    </span>
   </div>
 </article>

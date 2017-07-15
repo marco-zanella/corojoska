@@ -28,4 +28,22 @@ namespace Joska\Model;
  * @package Joska\Model
  */
 class Post extends Model {
+    /**
+     * Returns a brief summary of this post.
+     * 
+     * Returns the value of the summary field if set, a shortened version
+     * of the content otherwise.
+     * 
+     * @param int $length Maximum length of the summary
+     * @return string Summary of this post
+     */
+    public function getSummary($length = 128) {
+        $summary = !empty($this->summary) ? $this->summary : $this->content;
+        $summary = strip_tags($summary);
+        if (strlen($summary) > $length) {
+            $summary = substr($summary, 0, $length - 3) . "...";
+        }
+
+        return $summary;
+    }
 }

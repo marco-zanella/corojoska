@@ -12,14 +12,6 @@ else:
 endif;
 $date = date('d/m/Y', strtotime($event->date));
 $time = date('H:i', strtotime($event->date));
-
-if (!empty($event->summary)):
-  $summary = $event->summary;
-elseif (strlen(strip_tags($event->description)) <= $length):
-  $summary = strip_tags($event->description);
-else:
-  $summary = substr(strip_tags($event->description), 0, $length - 3) . "...";
-endif;
 ?>
 <article itemscope itemtype="http://schema.org/MusicEvent">
   <div class="teaser teaser-zoom teaser-large">
@@ -37,7 +29,7 @@ endif;
           <dd itemprop="startDate"><?= $date ?>, alle ore <?= $time ?></dd>
         </dl>
 
-        <p itemprop="description"><?= $summary ?></p>
+        <p itemprop="description"><?= $event->getSummary($length) ?></p>
         <p class="text-right">
           <a href="/calendario/<?= $event->id ?>" title="Visualizza" class="btn btn-primary">Visualizza <span class="glyphicon glyphicon-eye-open"></span></a>
         </p>
