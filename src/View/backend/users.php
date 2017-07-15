@@ -1,13 +1,21 @@
+<?php
+$page_info = [
+  'title' => "Gestione Utenti",
+  'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
+  'image' => null,
+  'description' => "Pagina dedicata alla gestione degli utenti."
+];
+?>
 <!DOCTYPE html>
 <html>
   <head>
-    <?php $this->view('head', ['title' => 'Gestione utenti', 'description' => 'Pagina di gestione utenti']); ?>
+    <?php $this->view('head', $page_info); ?>
   </head>
 
   <body>
     <div class="container">
       <div class="page-header">
-        <h1>Gestione utenti</h1>
+        <h1><?= $page_info['title'] ?></h1>
       </div>
 
       <div class="row">

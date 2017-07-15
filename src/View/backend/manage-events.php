@@ -1,13 +1,21 @@
+<?php
+$page_info = [
+  'title' => "Gestione Eventi",
+  'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
+  'image' => null,
+  'description' => "Pagina dedicata alla gestione degli eventi inseriti."
+];
+?>
 <!DOCTYPE html>
 <html>
   <head>
-    <?php $this->view('head', ['title' => 'Gestione Eventi', 'description' => 'Pagina di gestione degli eventi.']); ?>
+    <?php $this->view('head', $page_info); ?>
   </head>
 
   <body>
     <div class="container">
       <div class="page-header">
-        <h1>Gestione Eventi</h1>
+        <h1><?= $page_info['title'] ?></h1>
       </div>
 
       <div class="row">

@@ -1,13 +1,21 @@
+<?php
+$page_info = [
+  'title' => "Modifica Evento: " . $event->name,
+  'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
+  'image' => null,
+  'description' => "Pagina dedicata alla modifica dell'evento $event->name."
+];
+?>
 <!DOCTYPE html>
 <html>
   <head>
-    <?php $this->view('head', ['title' => 'Modifica evento', 'description' => 'Pagina di modifica di un evento.']); ?>
+    <?php $this->view('head', $page_info); ?>
   </head>
 
   <body>
     <div class="container">
       <div class="page-header">
-        <h1>Modifica Evento</h1>
+        <h1><?= $page_info['title'] ?></h1>
       </div>
 
       <ul class="breadcrumb">

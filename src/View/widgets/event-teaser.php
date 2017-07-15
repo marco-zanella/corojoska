@@ -9,8 +9,8 @@ else:
   $img_url = urlencode(str_replace("/", "|", realpath("public/style/teaser-background.png")))
            . '/' . $width . '/' . $height;
 endif;
-$date = date('d/m/Y', strtotime($event->created_at));
-$time = date('H:i', strtotime($event->created_at));
+$date = date('d/m/Y', strtotime($event->date));
+$time = date('H:i', strtotime($event->date));
 ?>
 <article class="teaser teaser-zoom-rotate" style="max-width: <?= $width ?>px; max-height: <?= $height ?>px;">
   <a href="/calendario/<?= $event->id ?>">

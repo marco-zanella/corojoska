@@ -1,13 +1,21 @@
+<?php
+$page_info = [
+  'title' => "Gestione Articoli",
+  'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
+  'image' => null,
+  'description' => "Pagina dedicata alla gestione degli articoli pubblicati."
+];
+?>
 <!DOCTYPE html>
 <html>
   <head>
-    <?php $this->view('head', ['title' => 'Gestione Articoli', 'description' => 'Pagina di gestione degli articoli.']); ?>
+    <?php $this->view('head', $page_info); ?>
   </head>
 
   <body>
     <div class="container">
       <div class="page-header">
-        <h1>Gestione Articoli</h1>
+        <h1><?= $page_info['title'] ?></h1>
       </div>
 
       <div class="row">

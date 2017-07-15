@@ -1,13 +1,21 @@
+<?php
+$page_info = [
+  'title' => "Visualizza Utente: " . $user->username,
+  'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
+  'image' => null,
+  'description' => "Pagina di visualizzazione dei dati relativi all'utent $user->username."
+];
+?>
 <!DOCTYPE html>
 <html>
   <head>
-    <?php $this->view('head', ['title' => 'Visualizza Utente', 'description' => 'Pagina di visualizzazione di un account.']); ?>
+    <?php $this->view('head', $page_info); ?>
   </head>
 
   <body>
     <div class="container">
       <div class="page-header">
-        <h1>Visualizza Utente</h1>
+        <h1><?= $page_info['title'] ?></h1>
       </div>
 
       <ul class="breadcrumb">

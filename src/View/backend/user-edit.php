@@ -1,4 +1,10 @@
 <?php
+$page_info = [
+  'title' => "Modifica Utente: " . $user->username,
+  'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
+  'image' => null,
+  'description' => "Pagina dedicata alla modifica dell'utente $user->username."
+];
 $permission_ids = [];
 foreach ($permissions as $permission):
   $permission_ids[$permission->permission_id] = true;
@@ -16,13 +22,13 @@ $permission_entry = function ($id, $display_name = null) use($permission_ids) {
 <!DOCTYPE html>
 <html>
   <head>
-    <?php $this->view('head', ['title' => 'Modifica Utente', 'description' => 'Pagina di modifica di un account.']); ?>
+    <?php $this->view('head', $page_info); ?>
   </head>
 
   <body>
     <div class="container">
       <div class="page-header">
-        <h1>Modifica Utente</h1>
+        <h1><?= $page_info['title'] ?></h1>
       </div>
 
       <ul class="breadcrumb">

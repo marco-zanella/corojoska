@@ -1,0 +1,36 @@
+header.header-image {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  color: #EEE;
+  text-shadow: 0 0 1px #111;
+}
+
+header.header-image .header-bottom {
+  min-height: 300px;
+  position: relative;
+}
+
+header.header-image .header-bottom h1 {
+  position: absolute;
+  bottom: 0;
+}
+
+
+body {
+  background: #C1DEFB;
+}
+.background-white {
+  background: #EEE;
+}
+
+
+footer {
+  background: #232323;
+  background: -moz-linear-gradient(top, #232323 0%, #353535 29%, #2f2f2f 100%);
+  background: -webkit-linear-gradient(top, #232323 0%,#353535 29%,#2f2f2f 100%);
+  background: linear-gradient(to bottom, #232323 0%,#353535 29%,#2f2f2f 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#232323', endColorstr='#2f2f2f',GradientType=0 );
+  color: #EEE;
+}

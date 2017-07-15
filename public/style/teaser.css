@@ -20,6 +20,7 @@
   transition: 0.5s;
 }
 
+
 .teaser:hover .teaser-info {
   background: rgba(0, 0, 0, 0.8);
 }
@@ -28,6 +29,35 @@
 .teaser .teaser-info h4 {
   margin-bottom: 0;
 }
+
+
+
+
+
+
+
+.teaser.teaser-large .teaser-info {
+  bottom: 0;
+}
+
+.teaser.teaser-large .teaser-showup {
+  max-height: 0;
+  overflow:hidden;
+  transition: 2s;
+}
+
+.teaser.teaser-large:hover .teaser-showup {
+  max-height: 800px;
+}
+
+
+
+
+
+
+
+
+
 
 
 

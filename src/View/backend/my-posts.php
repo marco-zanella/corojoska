@@ -1,13 +1,21 @@
+<?php
+$page_info = [
+  'title' => "I miei Articoli",
+  'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
+  'image' => null,
+  'description' => "Coro giovanile di ispirazione popolare della città di Rovigo che trae il proprio nome dal canto \"Joska, la Rossa!\"."
+];
+?>
 <!DOCTYPE html>
 <html>
   <head>
-    <?php $this->view('head', ['title' => 'I miei articoli', 'description' => 'Pagina di gestione degli articoli.']); ?>
+    <?php $this->view('head', $page_info); ?>
   </head>
 
   <body>
     <div class="container">
       <div class="page-header">
-        <h1>I miei Articoli</h1>
+        <h1><?= $page_info['title'] ?></h1>
       </div>
 
       <div class="row">

@@ -1,35 +1,34 @@
 <?php
 $events = (new \Joska\DataMapper\Sql('Event'))->search();
+$upcoming_events = $events;
+$latest_posts = $posts;
+
+$page_info = [
+  'title' => "Home Page",
+  'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
+  'image' => null,
+  'description' => "Coro giovanile di ispirazione popolare della città di Rovigo che trae il proprio nome dal canto \"Joska, la Rossa!\"."
+];
+
+$breadcrumb = [
+  ['Home Page', '/home'],
+  'Here'
+];
 ?>
 <!DOCTYPE html>
 <html>
   <head>
-    <?php $this->view('head', [
-      'title' => 'Home page',
-      'description' => 'Pagina principale del sito web del Coro della Joska'
-    ]); ?>
+    <?php $this->view('head', $page_info); ?>
+    <link rel="stylesheet" href="/public/style/frontend.css">
     <link rel="stylesheet" href="/public/style/teaser.css">
-
-    <style>
-      body {
-        background: lightblue;
-      }
-      .background-white {
-        background: white;
-      }
-    </style>
   </head>
 
   <body>
     <!-- Page header -->
-    <header style="
-      background-image: url('http://www.mrwallpaper.com/wallpapers/deep-space.jpg');
-      background-size: cover;
-      background-position: center center;
-    ">
+    <header class="header-image" style="background-image: url('http://www.mrwallpaper.com/wallpapers/deep-space.jpg');">
       <div class="container">
-        <div class="page-header" style="min-height: 300px; position: relative;">
-          <h1 style="position: absolute; bottom: 0; color: white; text-shadow: 0 0 1px #000">My Homepage</h1>
+        <div class="page-header header-bottom">
+          <h1>Coro della Joska</h1>
         </div>
       </div>
     </header>
@@ -38,29 +37,25 @@ $events = (new \Joska\DataMapper\Sql('Event'))->search();
     <div class="container background-white">
       <div class="row">
         <!-- Breadcrumb -->
-        <ul class="breadcrumb">
-          <li><a href="/home">Homepage</a></li>
-          <li class="active">here</li>
-        </ul>
+        <?php $this->view('widgets/breadcrumb', ['pages' => $breadcrumb]); ?>
 
         <!-- Main content -->
         <div class="col-md-8 col-lg-9">
+          <?php if(!empty($upcoming_events)): ?>
           <section>
-            <h2><?= $posts[0]->title ?></h2>
-            <?= $posts[0]->content ?>
+            <?php $this->view('frontend/homepage-upcoming-events', ['upcoming_events' => $upcoming_events]); ?>
           </section>
+          <?php endif; ?>
+
           <section>
-            <h2>Test</h2>
-            <?php foreach ($events as $event): ?>
-            <?php $this->view('widgets/event-list-item', ['event' => $event]); ?>
-            <?php endforeach; ?>
+            <?php $this->view('frontend/homepage-latest-posts', ['posts' => $posts]); ?>
           </section>
         </div>
 
         <!-- Aside and various widgets -->
         <aside class="col-md-4 col-lg-3">
           <?php $this->view('widgets/upcoming-events', ['upcoming_events' => [$events[0]]]); ?>
-          <?php $this->view('widgets/latest-posts', ['latest_posts' => $posts]); ?>
+          <?php $this->view('widgets/latest-posts', ['latest_posts' => $latest_posts]); ?>
         </aside>
       </div>
     </div>
@@ -68,9 +63,7 @@ $events = (new \Joska\DataMapper\Sql('Event'))->search();
 
     <!-- Footer -->
     <footer>
-      <div class="container-fluid">
-        Footer information
-      </div>
+      <?php $this->view('frontend/footer'); ?>
     </footer>
 
     <?php $this->view('scripts'); ?>

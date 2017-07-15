@@ -1,13 +1,21 @@
+<?php
+$page_info = [
+  'title' => "Il mio Account",
+  'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
+  'image' => null,
+  'description' => "Pagina di gestione del proprio account personale."
+];
+?>
 <!DOCTYPE html>
 <html>
   <head>
-    <?php $this->view('head', ['title' => 'Il mio Account', 'description' => 'Pagina di gestione account personale.']); ?>
+    <?php $this->view('head', $page_info); ?>
   </head>
 
   <body>
     <div class="container">
       <div class="page-header">
-        <h1>Il mio Account</h1>
+        <h1><?php echo $page_info['title']; ?></h1>
       </div>
 
       <div class="row">
