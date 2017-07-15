@@ -5,6 +5,7 @@
     </div>
   
     <div class="list-group">
+      <a href="/" class="list-group-item">Torna al sito</a>
       <a href="/account" class="list-group-item">Il mio Account</a>
       <?php if (\Joska\Session::hasPermission('publish')): ?>
       <a href="/my-posts" class="list-group-item">I miei Articoli</a>
@@ -40,6 +41,7 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
+          <li><a href="/">Torna al sito</a></li>
           <li><a href="/account">Il mio Account</a></li>
           <?php if (\Joska\Session::hasPermission('publish')): ?>
           <li><a href="/my-posts">I miei Articoli</a></li>

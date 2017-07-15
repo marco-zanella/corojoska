@@ -40,6 +40,13 @@ $page_info = [
             </dl>
 
             <a href="/account/edit" class="btn btn-primary btn-block" role="button">Modifica Informazioni</a>
+
+            <h3>Logout</h3>
+            <p>Termina la sessione corrente.</p>
+            <form action="/login" method="POST">
+              <input type="hidden" name="_method" value="DELETE">
+              <button type="submit" class="btn btn-primary btn-block">Logout</button>
+            </form>
           </section>
         </div>
       </div>
