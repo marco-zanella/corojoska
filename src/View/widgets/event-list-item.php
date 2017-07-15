@@ -18,15 +18,15 @@ if (strlen($description) > $length):
   $description = substr($description, 0, $length - 3) . "...";
 endif;
 ?>
-<article class="media">
+<article class="media" itemscope itemtype="http://schema.org/MusicEvent">
   <div class="media-left media-middle">
     <a href="/calendario/<?= $event->id ?>">
-      <img class="media-object" src="<?= $img_url ?>" alt="<?= $event->name ?>">
+      <img class="media-object" src="<?= $img_url ?>" alt="<?= $event->name ?>" itemprop="image">
     </a>
   </div>
   <div class="media-body">
-    <h4 class="media-heading"><?= $event->name ?></h4>
-    <?= $description ?>
+    <h4 class="media-heading" itemprop="name"><?= $event->name ?></h4>
+    <div itemprop="description"><?= $description ?></div>
     <a href="/calendario/<?= $event->id ?>">Leggi tutto</a>
   </div>
 </article>

@@ -21,23 +21,23 @@ else:
   $summary = substr(strip_tags($event->description), 0, $length - 3) . "...";
 endif;
 ?>
-<article>
+<article itemscope itemtype="http://schema.org/MusicEvent">
   <div class="teaser teaser-zoom teaser-large">
     <a href="/calendario/<?= $event->id ?>" title="Visualizza">
-      <img src="<?= $img_url ?>" alt="<?= $event->name ?>" class="img-responsive img-thumbnail">
+      <img src="<?= $img_url ?>" alt="<?= $event->name ?>" class="img-responsive img-thumbnail" itemprop="image">
     </a>
     <div class="teaser-info">
-      <h3><?= $event->name ?></h3>
+      <h3 itemprop="name"><?= $event->name ?></h3>
       <div class="teaser-showup">
         <dl class="dl-horizontal">
           <dt>Luogo:</dt>
-          <dd><?= $event->place ?></dd>
+          <dd itemprop="location"><?= $event->place ?></dd>
 
           <dt>Data:</dt>
-          <dd><?= $date ?>, alle ore <?= $time ?></dd>
+          <dd itemprop="startDate"><?= $date ?>, alle ore <?= $time ?></dd>
         </dl>
 
-        <p><?= $summary ?></p>
+        <p itemprop="description"><?= $summary ?></p>
         <p class="text-right">
           <a href="/calendario/<?= $event->id ?>" title="Visualizza" class="btn btn-primary">Visualizza <span class="glyphicon glyphicon-eye-open"></span></a>
         </p>

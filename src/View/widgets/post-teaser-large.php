@@ -10,8 +10,6 @@ else:
   $img_url = '/image/' . urlencode(str_replace("/", "|", realpath("public/style/teaser-background.png")))
            . '/' . $width . '/' . $height;
 endif;
-$date = date('d/m/Y', strtotime($post->date));
-$time = date('H:i', strtotime($post->date));
 
 if (!empty($post->summary)):
   $summary = $post->summary;
@@ -21,16 +19,17 @@ else:
   $summary = substr(strip_tags($post->content), 0, $length - 3) . "...";
 endif;
 ?>
-<article>
+<article itemscope itemtype="http://schema.org/CreativeWork">
   <div class="teaser teaser-zoom teaser-large">
     <a href="/blog/<?= $post->id ?>" title="Visualizza">
-      <img src="<?= $img_url ?>" alt="<?= $post->title ?>" class="img-responsive img-thumbnail">
+      <img src="<?= $img_url ?>" alt="<?= $post->title ?>" class="img-responsive img-thumbnail" itemprop="image">
     </a>
     <div class="teaser-info">
-      <h3><?= $post->title ?></h3>
+      <h3 itemprop="name"><?= $post->title ?></h3>
       <div class="teaser-showup">
-        <p><?= $summary ?></p>
+        <p itemprop="text"><?= $summary ?></p>
         <p class="text-right">
+          <span class="hidden">Pubblicato il <time itemprop="datePublished"><?= $post->created_at ?></time></span>
           <a href="/blog/<?= $post->id ?>" title="Visualizza" class="btn btn-primary">Visualizza <span class="glyphicon glyphicon-eye-open"></span></a>
         </p>
       </div>

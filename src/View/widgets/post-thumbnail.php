@@ -12,11 +12,16 @@ if (strlen($content) > $length):
   $content = substr($content, 0, $length - 3) . "...";
 endif;
 ?>
-<article class="thumbnail">
-  <img src="<?= $img_url ?>" alt="<?= $post->title ?>">
+<article class="thumbnail" itemscope itemtype="http://schema.org/CreativeWork">
+  <a href="/blog/<?= $post->id ?>" title="Visualizza">
+    <img src="<?= $img_url ?>" alt="<?= $post->title ?>" itemprop="image">
+  </a>
   <div class="caption">
-    <h3><?= $post->title ?></h3>
-    <p><?= $content ?></p>
-    <p class="text-right"><a href="/blog/<?= $post->id ?>" class="btn btn-primary" role="button">Visualizza</a></p>
+    <h3 itemprop="name"><?= $post->title ?></h3>
+    <p itemprop="text"><?= $content ?></p>
+    <p class="text-right">
+      <span class="hidden">Pubblicato il <time itemprop="datePublished"><?= $post->created_at ?></time></span>
+      <a href="/blog/<?= $post->id ?>" class="btn btn-primary" role="button">Visualizza</a>
+    </p>
   </div>
 </article>
