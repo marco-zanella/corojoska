@@ -16,7 +16,7 @@ $breadcrumb = [
 ];
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="it">
   <head>
     <?php $this->view('head', $page_info); ?>
     <link rel="stylesheet" href="/public/style/frontend.css">
