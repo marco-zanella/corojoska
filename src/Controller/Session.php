@@ -68,7 +68,18 @@ class Session extends Controller {
      * @api
      */
     public function get($binders = []) {
-        return !\Joska\Session::isAuthenticated() ? $this->view('frontend/login') : $this->view('frontend/logout');
+        $post_mapper = new \Joska\DataMapper\Sql('Post');
+        $event_mapper = new \Joska\DataMapper\Sql('Event');
+
+        $latest_posts = $post_mapper->search(null, ['created_at' => 'desc'], 3);
+        $criteria = new \Joska\DataMapper\MatchCriteria\Sql('date > NOW()', []);
+        $upcoming_events = $event_mapper->search($criteria, ['date' => 'asc']);
+
+        $view = !\Joska\Session::isAuthenticated() ? 'frontend/login' : 'frontend/logout';
+        return $this->view($view, [
+          'upcoming_events' => $upcoming_events,
+          'latest_posts' => $latest_posts
+        ]);
     }
 
 

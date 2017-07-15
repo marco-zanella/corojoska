@@ -44,6 +44,9 @@ $page_info = [
             <p>Il Coro della Joska si avvale di una propria divisa, contrassegnata da uno stemma.</p>
 
             <p>Il gruppo si ritrova ogni sabato durante il periodo scolastico nell&rsquo;auditorium del Liceo Scientifico P. Paleocapa (Via Alcide de Gasperi 19) dalle 13:30 alle 14:30.</p>
+
+            <h3>La Sede</h3>
+            <p>Inserire immagini e commenti sulla sede</p>
           </section>
         </div>
 

@@ -48,6 +48,7 @@ $breadcrumb = [
                 <dd><?= date('d/m/Y, \a\l\l\e H:i', strtotime($event->date)) ?></dd>
               </dl>
 
+              <h3>Descrizione</h3>
               <div><?= $event->description ?></div>
             </div>
           </div>
