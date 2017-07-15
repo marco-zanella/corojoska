@@ -1,4 +1,5 @@
 header.header-image {
+  background-image: url('http://www.mrwallpaper.com/wallpapers/deep-space.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -7,14 +8,26 @@ header.header-image {
   text-shadow: 0 0 1px #111;
 }
 
-header.header-image .header-bottom {
+header.header-image .header-container {
   min-height: 300px;
   position: relative;
 }
 
-header.header-image .header-bottom h1 {
+.header-container .header-title {
   position: absolute;
   bottom: 0;
+  font-size: 5em;
+  max-width: 70%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.header-container .header-logo {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 1em;
+  width: 30%;
+
 }
 
 

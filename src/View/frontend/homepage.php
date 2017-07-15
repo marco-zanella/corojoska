@@ -10,20 +10,14 @@ $page_info = [
 <html lang="it">
   <head>
     <?php $this->view('head', $page_info); ?>
-    <link rel="stylesheet" href="/public/style/frontend.css">
-    <link rel="stylesheet" href="/public/style/teaser.css">
+    <?php $this->view('frontend/head'); ?>
   </head>
 
   <body>
     <!-- Page header -->
-    <header class="header-image" style="background-image: url('http://www.mrwallpaper.com/wallpapers/deep-space.jpg');">
-      <div class="container">
-        <div class="page-header header-bottom">
-          <h1>Coro della Joska</h1>
-        </div>
-      </div>
+    <header class="header-image">
+      <?php $this->view('frontend/header'); ?>
     </header>
-
 
     <div class="container background-white">
       <div class="row">
@@ -42,8 +36,7 @@ $page_info = [
 
         <!-- Aside and various widgets -->
         <aside class="col-md-4 col-lg-3">
-          <?php $this->view('widgets/upcoming-events', ['upcoming_events' => $upcoming_events]); ?>
-          <?php $this->view('widgets/latest-posts', ['latest_posts' => $latest_posts]); ?>
+          <?php $this->view('frontend/aside', $_variables); ?>
         </aside>
       </div>
     </div>
