@@ -5,11 +5,6 @@ $page_info = [
   'image' => null,
   'description' => "Coro giovanile di ispirazione popolare della città di Rovigo che trae il proprio nome dal canto \"Joska, la Rossa!\"."
 ];
-
-$breadcrumb = [
-  ['Home Page', '/home'],
-  'Here'
-];
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -32,9 +27,6 @@ $breadcrumb = [
 
     <div class="container background-white">
       <div class="row">
-        <!-- Breadcrumb -->
-        <?php $this->view('widgets/breadcrumb', ['pages' => $breadcrumb]); ?>
-
         <!-- Main content -->
         <div class="col-md-8 col-lg-9">
           <?php if(!empty($upcoming_events)): ?>
