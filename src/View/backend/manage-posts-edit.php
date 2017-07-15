@@ -1,6 +1,6 @@
 <?php
 $page_info = [
-  'title' => "Modifica Articolo" . $post->title,
+  'title' => "Modifica Articolo: " . $post->title,
   'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
   'image' => null,
   'description' => "Pagina dedicata alla modifica degll'articolo $post->title."

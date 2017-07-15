@@ -48,6 +48,7 @@ class MyPosts extends Controller {
 
         $post = new \Joska\Model\Post();
         $post->title = $_POST['title'];
+        $post->summary = $_POST['summary'];
         $post->content = $_POST['content'];
 
         $image_extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
@@ -122,6 +123,7 @@ class MyPosts extends Controller {
         }
 
         $post->title = $_POST['title'];
+        $post->summary = $_POST['summary'];
         $post->content = $_POST['content'];
 
         if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {

@@ -84,6 +84,7 @@ class ManagePosts extends Controller {
         $post = $mapper->read($id);
 
         $post->title = $_POST['title'];
+        $post->summary = $_POST['summary'];
         $post->content = $_POST['content'];
 
         if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {

@@ -50,6 +50,7 @@ class ManageEvents extends Controller {
         $event->name = $_POST['name'];
         $event->place = $_POST['place'];
         $event->date = $_POST['date'];
+        $event->summary = $_POST['summary'];
         $event->description = $_POST['event_description'];
 
         if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
@@ -121,6 +122,7 @@ class ManageEvents extends Controller {
         $event->name = $_POST['name'];
         $event->place = $_POST['place'];
         $event->date = $_POST['date'];
+        $event->summary = $_POST['summary'];
         $event->description = $_POST['event_description'];
 
         if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
