@@ -11,6 +11,11 @@ $breadcrumb = [
   ['Calendario Eventi', '/calendario'],
   $event->name
 ];
+
+$bg_image = '';
+if (!empty($event->image)):
+  $bg_image = ' style="background-image: url(/' . $event->image .');"';
+endif;
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -24,7 +29,7 @@ $breadcrumb = [
     <?php $this->view('frontend/navbar', $page_info); ?>
 
     <!-- Page header -->
-    <header class="header-image">
+    <header class="header-image"<?= $bg_image ?>>
       <?php $this->view('frontend/header'); ?>
     </header>
 

@@ -8,7 +8,7 @@ $router = new \Joska\Router();
 
 $router
 // Front end
-->declareRoute('/home', 'Joska\Controller\Home')
+->declareRoute('/$', 'Joska\Controller\Home')
 ->declareRoute('/blog/{id?}', 'Joska\Controller\Blog')
 ->declareRoute('/calendario/{id?}', 'Joska\Controller\Events')
 ->declareRoute('/biografia', 'Joska\Controller\Biography')

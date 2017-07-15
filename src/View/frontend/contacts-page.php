@@ -32,7 +32,7 @@ $page_info = [
             <p>Inserire un paio di righe riguardo a questa pagina</p>
             <dl class="dl-horizontal">
               <dt>Sito Web</dt>
-              <dd><a href="http://corojoska.altervista.org/home">www.corojoska.altervista.org/home</a></dd>
+              <dd><a href="http://corojoska.altervista.org">www.corojoska.altervista.org</a></dd>
 
               <dt>eMail:</dt>
               <dd><a href="mailto:corojoska@live.it">corojoska@live.it</a></dd>

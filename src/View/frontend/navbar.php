@@ -13,14 +13,14 @@ $active = function ($name) use($section) {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/home">Coro della Joska</a>
+      <a class="navbar-brand" href="/">Coro della Joska</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li<?= $active('home') ?>>
-          <a href="/home">Homepage <span class="glyphicon glyphicon-home hidden-sm"></span></a>
+          <a href="/">Homepage <span class="glyphicon glyphicon-home hidden-sm"></span></a>
         </li>
         <li<?= $active('calendario') ?>>
           <a href="/calendario">Calendario <span class="glyphicon glyphicon-calendar hidden-sm"></span></a>
