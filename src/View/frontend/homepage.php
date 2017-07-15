@@ -1,8 +1,4 @@
 <?php
-$events = (new \Joska\DataMapper\Sql('Event'))->search();
-$upcoming_events = $events;
-$latest_posts = $posts;
-
 $page_info = [
   'title' => "Home Page",
   'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
@@ -54,7 +50,7 @@ $breadcrumb = [
 
         <!-- Aside and various widgets -->
         <aside class="col-md-4 col-lg-3">
-          <?php $this->view('widgets/upcoming-events', ['upcoming_events' => [$events[0]]]); ?>
+          <?php $this->view('widgets/upcoming-events', ['upcoming_events' => $upcoming_events]); ?>
           <?php $this->view('widgets/latest-posts', ['latest_posts' => $latest_posts]); ?>
         </aside>
       </div>

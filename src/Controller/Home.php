@@ -42,9 +42,20 @@ class Home extends Controller {
      * @api
      */
     public function get($binders = []) {
-        $mapper = new \Joska\DataMapper\Sql('Post');
-        $posts = $mapper->search(null, ['created_at' => 'desc'], 10);
+        $post_mapper = new \Joska\DataMapper\Sql('Post');
+        $event_mapper = new \Joska\DataMapper\Sql('Event');
 
-        return $this->view('frontend/homepage', ['posts' => $posts]);
+        $posts = $post_mapper->search(null, ['created_at' => 'desc'], 10);
+        $latest_posts = $post_mapper->search(null, ['created_at' => 'desc'], 3);
+
+        $criteria = new \Joska\DataMapper\MatchCriteria\Sql('date > NOW()', []);
+        $events = $event_mapper->search($criteria, ['date' => 'asc']);
+
+
+        return $this->view('frontend/homepage', [
+          'posts' => $posts,
+          'upcoming_events' => $events,
+          'latest_posts' => $latest_posts
+        ]);
     }
 }
