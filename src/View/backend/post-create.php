@@ -12,7 +12,7 @@
 
   <div class="form-group">
     <label for="inputSummary">Breve descrizione</label>
-    <span id="helpSummary" class="help-block">Un breve sommario dell'articolo, di lunghezza compresa tra 50 e 170 parole.</span>
+    <span id="helpSummary" class="help-block">Un breve sommario dell'articolo, di lunghezza compresa tra 70 e 160 parole.</span>
     <textarea name="summary" id="inputSummary" class="form-control" placeholder="Breve descrizione"></textarea>
   </div>
 
