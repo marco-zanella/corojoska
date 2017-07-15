@@ -51,7 +51,6 @@ class Home extends Controller {
         $criteria = new \Joska\DataMapper\MatchCriteria\Sql('date > NOW()', []);
         $events = $event_mapper->search($criteria, ['date' => 'asc']);
 
-
         return $this->view('frontend/homepage', [
           'posts' => $posts,
           'upcoming_events' => $events,

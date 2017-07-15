@@ -43,6 +43,11 @@ class Events extends Controller {
      */
     public function get($binders = []) {
         $mapper = new \Joska\DataMapper\Sql('Event');
+        $post_mapper = new \Joska\DataMapper\Sql('Post');
+
+        $latest_posts = $post_mapper->search(null, ['created_at' => 'desc'], 3);
+        $criteria = new \Joska\DataMapper\MatchCriteria\Sql('date > NOW()', []);
+        $upcoming_events = $mapper->search($criteria, ['date' => 'asc']);
 
         // Shows a single event
         if (isset($binders['id'])) {
@@ -51,11 +56,19 @@ class Events extends Controller {
             if (empty($event)) {
                 return $this->view('frontend/404');
             }
-            return $this->view('frontend/event-page', ['event' => $event]);
+            return $this->view('frontend/event-page', [
+                'event' => $event,
+                'upcoming_events' => $upcoming_events,
+                'latest_posts' => $latest_posts
+            ]);
         }
 
         // Shows events list
         $events = $mapper->search(null, ['date' => 'desc']);
-        return $this->view('frontend/events-page', ['events' => $events]);
+        return $this->view('frontend/events-page', [
+            'events' => $events,
+            'upcoming_events' => $upcoming_events,
+            'latest_posts' => $latest_posts
+        ]);
     }
 }

@@ -42,6 +42,18 @@ class Repertoire extends Controller {
      * @api
      */
     public function get($binders = []) {
-        return $this->view('frontend/repertoire-page');
+        $post_mapper = new \Joska\DataMapper\Sql('Post');
+        $event_mapper = new \Joska\DataMapper\Sql('Event');
+
+        $posts = $post_mapper->search(null, ['created_at' => 'desc'], 10);
+        $latest_posts = $post_mapper->search(null, ['created_at' => 'desc'], 3);
+
+        $criteria = new \Joska\DataMapper\MatchCriteria\Sql('date > NOW()', []);
+        $upcoming_events = $event_mapper->search($criteria, ['date' => 'asc']);
+
+        return $this->view('frontend/repertoire-page', [
+          'upcoming_events' => $upcoming_events,
+          'latest_posts' => $latest_posts
+        ]);
     }
 }

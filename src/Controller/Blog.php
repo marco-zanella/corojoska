@@ -43,6 +43,11 @@ class Blog extends Controller {
      */
     public function get($binders = []) {
         $mapper = new \Joska\DataMapper\Sql('Post');
+        $event_mapper = new \Joska\DataMapper\Sql('Event');
+
+        $latest_posts = $mapper->search(null, ['created_at' => 'desc'], 3);
+        $criteria = new \Joska\DataMapper\MatchCriteria\Sql('date > NOW()', []);
+        $upcoming_events = $event_mapper->search($criteria, ['date' => 'asc']);
 
         // Shows a single post
         if (isset($binders['id'])) {
@@ -51,7 +56,11 @@ class Blog extends Controller {
             if (empty($post)) {
                 return $this->view('frontend/404');
             }
-            return $this->view('frontend/post-page', ['post' => $post]);
+            return $this->view('frontend/post-page', [
+                'post' => $post,
+                'upcoming_events' => $upcoming_events,
+                'latest_posts' => $latest_posts
+            ]);
         }
 
         // Shows a page of posts
@@ -60,6 +69,10 @@ class Blog extends Controller {
         $offset = ($page - 1) * $size;
 
         $posts = $mapper->search(null, ['created_at' => 'desc'], $size, $offset);
-        return $this->view('frontend/posts-page', ['posts' => $posts, 'page' => $page, 'page_size' => $size]);
+        return $this->view('frontend/posts-page', [
+            'posts' => $posts, 'page' => $page, 'page_size' => $size,
+            'upcoming_events' => $upcoming_events,
+            'latest_posts' => $latest_posts
+        ]);
     }
 }
