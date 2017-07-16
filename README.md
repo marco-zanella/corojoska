@@ -4,7 +4,7 @@ Coro della Joska website. This repository holds the source code of the website.
 
 ## Quick Start
 1. Clone the Git repository - `git clone https://github.com/marco-zanella/corojoska.git`
-2. Copy the sample _config-default.ini_- to _config.ini_
+2. Copy the sample _config-default.ini_ to _config.ini_
 3. Edit _config.ini_ to match your needs and system configuration
 
 ## Documentation
