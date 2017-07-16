@@ -13,4 +13,4 @@ HTML documentation into doc/phpdoc. You can edit the _phpdoc.xml_ to match your
 needs an preference.
 
 ## License
-The code is available under the [GPLv3 license](LICENSE.txt).
+The code is available under the [GPLv3 license](LICENSE).
