@@ -1,4 +1,4 @@
-# [Coro dell Joska](http://corojoska.altervista.org)
+# [Coro della Joska](http://corojoska.altervista.org)
 
 Coro della Joska website. This repository holds the source code of the website.
 
