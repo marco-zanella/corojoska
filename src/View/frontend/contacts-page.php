@@ -51,7 +51,7 @@ $page_info = [
             <p>Testo da scrivere</p>
 
             <h3>Dove siamo</h3>
-            <p>Testo da scrivere e aggiungere la cartina di Google Maps</p>
+            <p>Il gruppo si ritrova ogni sabato durante il periodo scolastico nell&rsquo;<a href="/biografia" title="Biografia e sede">auditorium del Liceo Scientifico P. Paleocapa</a> (Via Alcide de Gasperi 19) dalle 13:30 alle 14:30.</p>
             <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyD3RSIWLpNs7iPZmYzLd-2VPq8TPAIvvPA'></script><div class="center-block" style='overflow:hidden;height:400px;width:520px;'><div id='gmap_canvas' style='height:400px;width:520px;'></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div> <a href='http://maps-generator.com/it'>http://maps-generator.com/it</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=ad73a8c83deb8f477a53cf89be119357ffbcbdb7'></script><script type='text/javascript'>function init_map(){var myOptions = {zoom:17,center:new google.maps.LatLng(45.0817,11.7952),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(45.0817,11.7952)});infowindow = new google.maps.InfoWindow({content:'<strong>Sede del Coro della Joska</strong><br>Auditorium Liceo Scientifico P. Paleocapa<br>via Alcide de Gasperi 19<br>45100 Rovigo RO Italia<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
           </section>
         </div>

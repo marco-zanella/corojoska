@@ -46,7 +46,17 @@ $page_info = [
             <p>Il gruppo si ritrova ogni sabato durante il periodo scolastico nell&rsquo;auditorium del Liceo Scientifico P. Paleocapa (Via Alcide de Gasperi 19) dalle 13:30 alle 14:30.</p>
 
             <h3>La Sede</h3>
-            <p>Inserire immagini e commenti sulla sede</p>
+            <div class="row">
+              <div class="col-lg-7">
+                <p>Dall'anno 2006 il coro ha la sua sede presso l'auditorium del Liceo Scientifico Statale P. Paleocapa, presso il quale spesso si esibisce in occasione di incontri o convegni promossi dall'istituto.</p>
+                <p>Il coro prova ogni sabato dalle 13.30 alle 14.30 nell'auditorium del Liceo Scientifico Statale P. Paleocapa di Rovigo (via Alcide de Gasperi 19) durante il periodo scolastico, da ottobre a giugno.</p>
+                <p>Le prove settimanali sono aperte a chiunque sia interessato ad ascoltare o partecipare attivamente alle attività corali.</p>
+              </div>
+              <div class="col-lg-5">
+                <img src="/public/content/sede.jpg" alt="Auditorium del Liceo Scientifico P. Paleocapa di Rovigo" class="img-responsive">
+                <div class="text-center"><small>Zanella, Marco. "La sede del coro" 2012. JPEG file.</small></div>
+              </div>
+            </div>
           </section>
         </div>
 
