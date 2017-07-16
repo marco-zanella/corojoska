@@ -185,10 +185,11 @@ trait SqlTrait {
         }
 
         if (!empty($limit)) {
-            $query .= ' LIMIT ' . $limit;
+            $query .= ' LIMIT ';
             if (!empty($offset)) {
-                $query .= ', ' . $offset;
+                $query .= $offset . ', ';
             }
+            $query .= $limit;
         }
 
         return $query;

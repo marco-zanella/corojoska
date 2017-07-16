@@ -91,6 +91,7 @@ interface DataMapperInterface {
      * @param int|null $limit Maximum number of results to return
      * @param int|null $offset Records to skip (only if $limit is specified)
      * @return array Array of models
+     * @api
      */
     public function search(
         MatchCriteria\MatchCriteriaInterface $criteria = null,
@@ -98,4 +99,14 @@ interface DataMapperInterface {
         $limit = null,
         $offset = null
     );
+
+
+    /**
+     * Tells how many models match given criteria.
+     * 
+     * @param MatchCriteria\MatchCriteriaInterface|null $criteria Criteria to match
+     * @return int Number of models matching given criteria
+     * @api
+     */
+    public function count(MatchCriteria\MatchCriteriaInterface $criteria = null);
 }

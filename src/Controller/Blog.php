@@ -66,11 +66,18 @@ class Blog extends Controller {
         // Shows a page of posts
         $page = (isset($_GET['page'])) ? $_GET['page'] : 1;
         $size = (isset($_GET['page_size'])) ? $_GET['page_size'] : 10;
+        $elements = $mapper->count();
+        $pages = ceil($elements / $size);
         $offset = ($page - 1) * $size;
+
+        $previous_page = ($page == 1) ? 1 : $page - 1;
+        $next_page = ($page == $pages) ? $page : $page + 1;
 
         $posts = $mapper->search(null, ['created_at' => 'desc'], $size, $offset);
         return $this->view('frontend/posts-page', [
             'posts' => $posts, 'page' => $page, 'page_size' => $size,
+            'post_number' => $elements, 'pages' => $pages,
+            'previous_page' => $previous_page, 'next_page' => $next_page,
             'upcoming_events' => $upcoming_events,
             'latest_posts' => $latest_posts
         ]);

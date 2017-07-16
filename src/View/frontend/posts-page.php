@@ -12,11 +12,8 @@ $breadcrumb = [
   'Blog'
 ];
 
-$previous_url = ($page > 1) ? '/blog?page=' . ($page - 1) : '/blog?page=' . $page;
-$next_url = (count($posts) == $page_size) ? '/blog?page=' . ($page + 1) : '/blog?page=' . $page;
-
-$previous_disabled = ($page <= 1) ? ' disabled' : '';
-$next_disabled = (count($posts) < $page_size) ? ' disabled' : '';
+$previous_disabled = ($page <= 1) ? ' class="disabled"' : '';
+$next_disabled = ($page >=  $pages) ? ' class="disabled"' : '';
 ?>
 <!DOCTYPE html>
 <html lang="it">
@@ -43,13 +40,27 @@ $next_disabled = (count($posts) < $page_size) ? ' disabled' : '';
             <h2>Blog - pagina <?= $page ?></h2>
 
             <!-- Pager -->
-            <nav aria-label="...">
-              <ul class="pager">
-                <li class="previous<?= $previous_disabled ?>"><a href="<?= $previous_url ?>">&larr; Più recenti</a></li>
-                <li class="next<?= $next_disabled ?>"><a href="<?= $next_url ?>">Meno recenti &rarr;</a></li>
+            <nav aria-label="Page navigation" class="text-center">
+              <ul class="pagination">
+                <li<?= $previous_disabled?>>
+                  <a href="/blog?page=<?= $previous_page ?>&page_size=<?= $page_size ?>" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <?php for ($i = 1; $i <= $pages; ++$i): ?>
+                <li<?= ($i == $page ? ' class="active"' : '') ?>>
+                  <a href="/blog?page=<?= $i ?>&page_size=<?= $page_size ?>"><?= $i ?></a>
+                </li>
+                <?php endfor; ?>
+                <li<?= $next_disabled ?>>
+                  <a href="/blog?page=<?= $next_page ?>&page_size=<?= $page_size ?>" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
               </ul>
             </nav>
 
+            <!-- Blog posts -->
             <?php foreach ($posts as $post): ?>
             <div class="well well-sm">
               <?php $this->view('widgets/post-list-item', ['post' => $post]); ?>
@@ -57,13 +68,25 @@ $next_disabled = (count($posts) < $page_size) ? ' disabled' : '';
             <?php endforeach; ?>
 
             <!-- Pager -->
-            <nav aria-label="...">
-              <ul class="pager">
-                <li class="previous<?= $previous_disabled ?>"><a href="<?= $previous_url ?>">&larr; Più recenti</a></li>
-                <li class="next<?= $next_disabled ?>"><a href="<?= $next_url ?>">Meno recenti &rarr;</a></li>
+            <nav aria-label="Page navigation" class="text-center">
+              <ul class="pagination">
+                <li<?= $previous_disabled?>>
+                  <a href="/blog?page=<?= $previous_page ?>&page_size=<?= $page_size ?>" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <?php for ($i = 1; $i <= $pages; ++$i): ?>
+                <li<?= ($i == $page ? ' class="active"' : '') ?>>
+                  <a href="/blog?page=<?= $i ?>&page_size=<?= $page_size ?>"><?= $i ?></a>
+                </li>
+                <?php endfor; ?>
+                <li<?= $next_disabled ?>>
+                  <a href="/blog?page=<?= $next_page ?>&page_size=<?= $page_size ?>" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
               </ul>
             </nav>
-
           </section>
         </div>
 

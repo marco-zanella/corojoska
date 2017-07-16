@@ -241,6 +241,7 @@ class Sql implements DataMapperInterface {
      * @param int|null $limit Maximum number of results to return
      * @param int|null $offset Records to skip (only if $limit is specified)
      * @return array Array of models
+     * @api
      */
     public function search(
         MatchCriteria\MatchCriteriaInterface $criteria = null,
@@ -282,6 +283,41 @@ class Sql implements DataMapperInterface {
         return $models;
     }
 
+
+
+    /**
+     * Tells how many models match given criteria.
+     * 
+     * @param MatchCriteria\MatchCriteriaInterface|null $criteria Criteria to match
+     * @return int Number of models matching given criteria
+     * @api
+     */
+    public function count(MatchCriteria\MatchCriteriaInterface $criteria = null) {
+        $where = null;
+        $binders = [];
+
+        if (!empty($criteria)) {
+            $where = $criteria->asPreparedSql();
+            $binders = $criteria->getBinders();
+        }
+
+        $query = $this->prepareSelect(
+            strtolower($this->model_name),
+            'COUNT(*)',
+            $where
+        );
+
+        // Prepares statement
+        $stm = $this->dbh->prepare($query);
+
+        // Executes
+        $result = $stm->execute($binders);
+        $this->checkResult($result, $query);
+
+        // Returns result
+        $row = $stm->fetch();
+        return empty($row) ? 0 : $row['COUNT(*)'];
+    }
 
 
 
