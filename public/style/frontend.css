@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "TeX Gyre Chorus";
+  src: url('tex-gyre-chorus.otf');
+}
+
+
 header.header-image {
   background-color: #EEE;
   background-attachment: fixed;
@@ -5,7 +11,7 @@ header.header-image {
   background-position: center center;
   background-repeat: no-repeat;
 
-  color: #194EAE;
+  color: #194eae;
   text-shadow: 0 0 1px #EEE;
 }
 
@@ -24,9 +30,10 @@ header.header-image .header-container {
 .header-container .header-title {
   position: absolute;
   bottom: 0;
-  font-size: 5em;
-  max-width: 80%;
-  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  font-size: 6em;
+  font-family: "TeX Gyre Chorus", Arial, sans-serif;
+  text-align:center;
 }
 
 .header-container .header-logo {
