@@ -4,7 +4,8 @@ $page_info = [
   'section' => 'calendario',
   'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
   'image' => $event->image,
-  'description' => $event->getSummary()
+  'description' => $event->getSummary(),
+  'show_header_image' => false
 ];
 
 $breadcrumb = [
@@ -30,7 +31,7 @@ endif;
 
     <!-- Page header -->
     <header class="header-image"<?= $bg_image ?>>
-      <?php $this->view('frontend/header'); ?>
+      <?php $this->view('frontend/header', $page_info); ?>
     </header>
 
     <div class="container background-white">

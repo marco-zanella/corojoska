@@ -4,7 +4,8 @@ $page_info = [
   'section' => 'home',
   'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
   'image' => $post->image,
-  'description' => $post->getSummary()
+  'description' => $post->getSummary(),
+  'show_header_image' => false
 ];
 
 $breadcrumb = [
@@ -25,7 +26,7 @@ $breadcrumb = [
     <?php $this->view('frontend/navbar', $page_info); ?>
     <!-- Page header -->
     <header class="header-image" style="background-image: url('/<?= $post->image ?>'); background-size: cover;">
-      <?php $this->view('frontend/header'); ?>
+      <?php $this->view('frontend/header', $page_info); ?>
     </header>
 
     <div class="container background-white">

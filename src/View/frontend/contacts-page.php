@@ -4,7 +4,8 @@ $page_info = [
   'section' => 'contatti',
   'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
   'image' => null,
-  'description' => "Pagina che raccoglie le iformazioni su come contattare il Coro della Joska e ne riporta i collegamenti."
+  'description' => "Pagina che raccoglie le iformazioni su come contattare il Coro della Joska e ne riporta i collegamenti.",
+  'show_header_image' => true
 ];
 ?>
 <!DOCTYPE html>
@@ -20,7 +21,7 @@ $page_info = [
 
     <!-- Page header -->
     <header class="header-image">
-      <?php $this->view('frontend/header'); ?>
+      <?php $this->view('frontend/header', $page_info); ?>
     </header>
 
     <div class="container background-white">

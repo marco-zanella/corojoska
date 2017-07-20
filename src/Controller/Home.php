@@ -45,7 +45,7 @@ class Home extends Controller {
         $post_mapper = new \Joska\DataMapper\Sql('Post');
         $event_mapper = new \Joska\DataMapper\Sql('Event');
 
-        $posts = $post_mapper->search(null, ['created_at' => 'desc'], 10);
+        $posts = $post_mapper->search(null, ['created_at' => 'desc'], 6);
         $latest_posts = $post_mapper->search(null, ['created_at' => 'desc'], 3);
 
         $criteria = new \Joska\DataMapper\MatchCriteria\Sql('date > NOW()', []);

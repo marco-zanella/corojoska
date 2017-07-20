@@ -28,9 +28,6 @@ $active = function ($name) use($section) {
         <li<?= $active('biografia') ?>>
           <a href="/biografia">Biografia <span class="glyphicon glyphicon-info-sign hidden-sm"></span></a>
         </li>
-        <li<?= $active('repertorio') ?>>
-          <a href="/repertorio">Repertorio <span class="glyphicon glyphicon-music hidden-sm"></span></a>
-        </li>
         <li<?= $active('contatti') ?>>
           <a href="/contatti">Contatti <span class="glyphicon glyphicon-envelope hidden-sm"></span></a>
         </li>

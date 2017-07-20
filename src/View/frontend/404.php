@@ -6,7 +6,8 @@ $page_info = [
   'section' => 'misc',
   'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
   'image' => null, 
-  'description' => "La risorsa cercata non è stata trovata."
+  'description' => "La risorsa cercata non è stata trovata.",
+  'show_header_image' => true
 ];
 ?>
 <!DOCTYPE html>
@@ -22,7 +23,7 @@ $page_info = [
 
     <!-- Page header -->
     <header class="header-image">
-      <?php $this->view('frontend/header'); ?>
+      <?php $this->view('frontend/header', $page_info); ?>
     </header>
 
     <div class="container background-white">

@@ -13,7 +13,7 @@ $img_url = '/image/' . urlencode(str_replace("/", "|", $post->image))
     </a>
   </div>
   <div class="media-body">
-    <h4 class="media-heading" itemprop="name"><?= $post->title ?></h4>
+    <h4 class="media-heading"><a href="/blog/<?= $post->id ?>" itemprop="name"><?= $post->title ?></a></h4>
     <div itemprop="text"><?= $post->getSummary($length) ?></div>
     <a href="/blog/<?= $post->id ?>">Leggi tutto</a>
     <span class="hidden"><time itemprop="detePublished"><?= $post->created_at ?></time></span>

@@ -1,16 +1,23 @@
 header.header-image {
-  background-image: url('http://www.mrwallpaper.com/wallpapers/deep-space.jpg');
+  background-color: #EEE;
+  background-attachment: fixed;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
 
-  color: #EEE;
-  text-shadow: 0 0 1px #111;
+  color: #194EAE;
+  text-shadow: 0 0 1px #EEE;
+}
+
+@media only screen and (max-width: 765px) {
+  header.header-image {
+    background-image: none;
+    min-height: 40vw;
+  }
 }
 
 header.header-image .header-container {
-  min-height: 50vh;
+  min-height: 15vw;
   position: relative;
 }
 
@@ -35,17 +42,32 @@ header.header-image .header-container {
 body {
   padding-top: 50px;
   background-color: #C1DEFB;
+  background: #194eae; /* Old browsers */
+  background: -moz-linear-gradient(left, #194eae 0%, #194eae 75%, #c1defb 75%, #c1defb 100%);
+  background: -webkit-linear-gradient(left, #194eae 0%,#194eae 75%,#c1defb 75%,#c1defb 100%);
+  background: linear-gradient(to right, #194eae 0%,#194eae 75%,#c1defb 75%,#c1defb 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#194eae', endColorstr='#c1defb',GradientType=1 );
 }
+
+
+
 .background-white {
-  background: #EEE;
+  background-color: #EEE;
+  background-image: url('main-background.svg');
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-left: 1em solid #CECA9F;
+  border-right: 1em solid #CECA9F;
 }
+
 
 
 footer {
-  background: #194eb2; /* Old browsers */
-  background: -moz-linear-gradient(top, #194eb2 0%, #295aaa 30%, #194eae 100%);
-  background: -webkit-linear-gradient(top, #194eb2 0%,#295aaa 30%,#194eae 100%);
-  background: linear-gradient(to bottom, #194eb2 0%,#295aaa 30%,#194eae 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#194eb2', endColorstr='#194eae',GradientType=0 );
+  background: #13428b; /* Old browsers */
+  background: -moz-linear-gradient(top, #13428b 0%, #295aaa 30%, #194eae 100%);
+  background: -webkit-linear-gradient(top, #13428b 0%,#295aaa 30%,#194eae 100%);
+  background: linear-gradient(to bottom, #13428b 0%,#295aaa 30%,#194eae 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#13428b', endColorstr='#194eae',GradientType=0 );
   color: #EEE;
 }

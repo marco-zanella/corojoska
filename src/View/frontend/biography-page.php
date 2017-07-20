@@ -4,7 +4,8 @@ $page_info = [
   'section' => 'biografia',
   'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
   'image' => null,
-  'description' => "Biografia e note storiche del Coro della Joska del Liceo Scientifico Statale P. Paleocapa di Rovigo."
+  'description' => "Biografia e note storiche del Coro della Joska del Liceo Scientifico Statale P. Paleocapa di Rovigo.",
+  'show_header_image' => true
 ];
 ?>
 <!DOCTYPE html>
@@ -20,7 +21,7 @@ $page_info = [
 
     <!-- Page header -->
     <header class="header-image">
-      <?php $this->view('frontend/header'); ?>
+      <?php $this->view('frontend/header', $page_info); ?>
     </header>
 
     <div class="container background-white">

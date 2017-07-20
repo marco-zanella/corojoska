@@ -18,7 +18,7 @@ endif;
     </a>
   </div>
   <div class="media-body">
-    <h4 class="media-heading" itemprop="name"><?= $event->name ?></h4>
+    <h4 class="media-heading"><a href="/calendario/<?= $event->id ?>" itemprop="name"><?= $event->name ?></a></h4>
     <div itemprop="description"><?= $event->getSummary($length) ?></div>
     <a href="/calendario/<?= $event->id ?>">Leggi tutto</a>
     <span class="hidden">

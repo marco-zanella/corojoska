@@ -4,7 +4,8 @@ $page_info = [
   'section' => 'home',
   'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
   'image' => null,
-  'description' => "Coro giovanile di ispirazione popolare della città di Rovigo che trae il proprio nome dal canto \"Joska, la Rossa!\"."
+  'description' => "Coro giovanile di ispirazione popolare della città di Rovigo che trae il proprio nome dal canto \"Joska, la Rossa!\".",
+  'show_header_image' => true
 ];
 ?>
 <!DOCTYPE html>
@@ -20,7 +21,7 @@ $page_info = [
 
     <!-- Page header -->
     <header class="header-image">
-      <?php $this->view('frontend/header'); ?>
+      <?php $this->view('frontend/header', $page_info); ?>
     </header>
 
     <div class="container background-white">
