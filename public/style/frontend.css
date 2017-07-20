@@ -27,13 +27,16 @@ header.header-image .header-container {
   position: relative;
 }
 
-.header-container .header-title {
+.header-container .header-bottom {
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+
+.header-container .header-title {
   font-size: 6em;
   font-family: "TeX Gyre Chorus", Arial, sans-serif;
-  text-align:center;
+  text-align: center;
 }
 
 .header-container .header-logo {
