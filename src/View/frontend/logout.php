@@ -4,7 +4,8 @@ $page_info = [
   'section' => 'accedi',
   'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
   'image' => null,
-  'description' => "Permette la disconnessione sicura dall'area riservata del sito web del Coro della Joska per gli utenti amministratori."
+  'description' => "Permette la disconnessione sicura dall'area riservata del sito web del Coro della Joska per gli utenti amministratori.",
+  'show_header_image' => true
 ];
 ?>
 <!DOCTYPE html>
@@ -20,7 +21,7 @@ $page_info = [
 
     <!-- Page header -->
     <header class="header-image">
-      <?php $this->view('frontend/header'); ?>
+      <?php $this->view('frontend/header', $page_info); ?>
     </header>
 
     <div class="container background-white">
