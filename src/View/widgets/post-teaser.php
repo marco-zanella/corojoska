@@ -12,7 +12,7 @@ $date = date('d/m/Y, H:i', strtotime($post->created_at));
     <div class="teaser-info">
       <h4 itemprop="name"><?= $post->title ?></h4>
       <div class="text-right">
-        <small>Pubbicato il: <time itemprop="datePublished"><?= $date ?></time></small>
+        <small>Pubbicato il: <span itemprop="datePublished"><?= $date ?></span></small>
       </div>
     </div>
   </a>

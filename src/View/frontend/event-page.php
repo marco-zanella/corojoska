@@ -47,7 +47,7 @@ endif;
             <div class="col-sm-8 col-md-7">
               <p><?= $event->summary ?></p>
               <dl class="dl-horizontal">
-                <dt>Luogo:</td>
+                <dt>Luogo:</dt>
                 <dd><?= $event->place ?></dd>
 
                 <dt>Data:</dt>

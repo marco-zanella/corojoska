@@ -4,7 +4,7 @@ $page_info = [
   'section' => 'home',
   'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
   'image' => "http://{$_SERVER['HTTP_HOST']}/public/style/logo.png",
-  'description' => "Coro giovanile di ispirazione popolare della città di Rovigo che trae il proprio nome dal canto \"Joska, la Rossa!\".",
+  'description' => "Coro giovanile di ispirazione popolare della città di Rovigo che trae il proprio nome dal canto Joska, la Rossa!.",
   'show_header_image' => true
 ];
 ?>

@@ -37,7 +37,7 @@ $breadcrumb = [
           <h2><?= $post->title ?></h2>
           <div><?= $post->content ?></div>
           <p class="text-right">
-            <small>Pubblicato il <time><?= date('d/m/Y, H:i', strtotime($post->created_at)) ?></time></small>
+            <small>Pubblicato il <span><?= date('d/m/Y, H:i', strtotime($post->created_at)) ?></span></small>
           </p>
         </div>
 

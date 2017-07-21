@@ -146,7 +146,6 @@ $page_info = [
             <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyD3RSIWLpNs7iPZmYzLd-2VPq8TPAIvvPA'></script>
             <div class="center-block img-thumbnail img-responsive" style='overflow:hidden;'>
               <div id='gmap_canvas' style='height:400px;'></div>
-              <style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
             </div>
             <a href='http://maps-generator.com/it'>http://maps-generator.com/it</a>
             <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=ad73a8c83deb8f477a53cf89be119357ffbcbdb7'></script>

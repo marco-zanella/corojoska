@@ -22,8 +22,8 @@ endif;
     <div itemprop="description"><?= $event->getSummary($length) ?></div>
     <a href="/calendario/<?= $event->id ?>" title="Visualizza i dettagli dell'evento">Leggi tutto</a>
     <small class="pull-right">
-      Il <time itemprop="startDate"><?= date('d/m/Y, \a\l\l\e H:i', strtotime($event->date)) ?></time>
-      <span class="hidden" itemptop="location"><?= $event->place ?></span>
+      Il <span itemprop="startDate"><?= date('d/m/Y, \a\l\l\e H:i', strtotime($event->date)) ?></span>
+      <span class="hidden" itemprop="location"><?= $event->place ?></span>
     </small>
   </div>
 </article>

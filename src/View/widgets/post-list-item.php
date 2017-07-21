@@ -18,7 +18,7 @@ $img_url = '/image/' . urlencode(str_replace("/", "|", $post->image))
     <a href="/blog/<?= $post->id ?>" title="Leggi l'articolo">Leggi tutto</a>
     <small class="pull-right">
       Pubblicato il
-      <time itemprop="detePublished"><?= date('d/m/Y, \a\l\l\e H:i', strtotime($post->created_at)) ?></time>
+      <span itemprop="detePublished"><?= date('d/m/Y, \a\l\l\e H:i', strtotime($post->created_at)) ?></span>
     </small>
   </div>
 </article>
