@@ -13,7 +13,7 @@ endif;
 ?>
 <article itemscope itemtype="http://schema.org/CreativeWork">
   <div class="teaser teaser-zoom teaser-large">
-    <a href="/blog/<?= $post->id ?>" title="Visualizza">
+    <a href="/blog/<?= $post->id ?>" title="Leggi l'articolo">
       <img src="<?= $img_url ?>" alt="<?= $post->title ?>" class="img-responsive img-thumbnail" itemprop="image">
     </a>
     <div class="teaser-info">
@@ -21,8 +21,11 @@ endif;
       <div class="teaser-showup">
         <p itemprop="text"><?= $post->getSummary($length) ?></p>
         <p class="text-right">
-          <span class="hidden"><time itemprop="datePublished"><?= $post->created_at ?></time></span>
-          <a href="/blog/<?= $post->id ?>" title="Visualizza" class="btn btn-primary">Visualizza <span class="glyphicon glyphicon-eye-open"></span></a>
+          <small class="pull-left">
+            Pubblicato il 
+            <time itemprop="datePublished"><?= date('d/m/Y, \a\l\l\e H:i', strtotime($post->created_at)) ?></time>
+          </small>
+          <a href="/blog/<?= $post->id ?>" title="Leggi l'articolo" class="btn btn-default">Leggi tutto <span class="glyphicon glyphicon-eye-open"></span></a>
         </p>
       </div>
     </div>

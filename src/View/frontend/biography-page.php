@@ -31,6 +31,10 @@ $page_info = [
           <section>
             <h2>Biografia</h2>
             <p>Il Coro della Joska nasce nella primavera del 1994 a seguito di un&rsquo;esibizione fuori programma alla Rotonda, durante un concerto di allievi del Liceo Scientifico P. Paleocapa iscritti al Conservatorio. Dato il grande successo riscontrato da questa prima esibizione ne susseguirono altre in occasione di eventi legati alla comunit&agrave; rodigina, festivit&agrave; o, pi&ugrave; frequentemente, di avvenimenti legati al Liceo, al quale il Coro appartiene da sempre poich&eacute; il primo a dirigerlo fu Claudio Garbato, ex professore di Lettere dell&rsquo;Istituto.</p>
+            <p>
+              <img src="/public/content/biografia.jpg" alt="Il coro nel 2008" title="Il coro a Viernheim nel 2008" class="img-responsive center-block">
+              <small class="text-center center-block">Il coro a Viernheim nel 2008</small>
+            </p>
 
             <p>Il professor Garbato diresse il Coro dalla sua nascita sino al 2003 quando Davide Dainese, ex alunno e corista appassionato al gruppo, lo sostitu&igrave; e ne &egrave; tuttora il direttore.</p>
 
@@ -54,7 +58,7 @@ $page_info = [
                 <p>Le prove settimanali sono aperte a chiunque sia interessato ad ascoltare o partecipare attivamente alle attività corali.</p>
               </div>
               <div class="col-lg-5">
-                <img src="/public/content/sede.jpg" alt="Auditorium del Liceo Scientifico P. Paleocapa di Rovigo" class="img-responsive">
+                <img src="/public/content/sede.jpg" alt="Auditorium del Liceo Scientifico P. Paleocapa di Rovigo" title="Auditorium del Liceo Scientifico P. Paleocapa di Rovigo" class="img-responsive">
                 <div class="text-center"><small>Zanella, Marco. "La sede del coro" 2012. JPEG file.</small></div>
               </div>
             </div>

@@ -14,7 +14,7 @@ $date = date('d/m/Y', strtotime($event->created_at));
 $time = date('H:i', strtotime($event->created_at));
 ?>
 <article class="thumbnail" itemscope itemtype="http://schema.org/MusicEvent">
-  <a href="/calendario/<?= $event->id ?>" title="Visualizza">
+  <a href="/calendario/<?= $event->id ?>" title="Visualizza i dettagli dell'evento">
     <img src="<?= $img_url ?>" alt="<?= $event->name ?>" itemprop="image">
   </a>
   <div class="caption">
@@ -28,7 +28,7 @@ $time = date('H:i', strtotime($event->created_at));
     </dl>
     <p itemprop="description"><?= $event->getSummary() ?></p>
     <p class="text-right">
-      <a href="/calendario/<?= $event->id ?>" class="btn btn-primary" role="button">Visualizza</a>
+      <a href="/calendario/<?= $event->id ?>" title="Visualizza i dettagli dell'evento" class="btn btn-primary" role="button">Visualizza</a>
       <span class="hidden">
         <time itemprop="startDate"><?= $event->date ?></time>
       </span>

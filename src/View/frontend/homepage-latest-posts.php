@@ -28,5 +28,5 @@ endif;
 <?php endfor; ?>
 
 <p>
-  <a href="/blog" title="Visualizza tutti gli articoli" class="btn btn-primary btn-block">Visualizza tutti</a>
+  <a href="/blog" title="Visualizza tutti gli articoli" class="btn btn-default btn-block">Visualizza tutti gli articoli</a>
 </p>

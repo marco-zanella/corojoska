@@ -7,7 +7,7 @@ $img_url = '/image/' . urlencode(str_replace("/", "|", $post->image))
 $date = date('d/m/Y, H:i', strtotime($post->created_at));
 ?>
 <article class="teaser teaser-zoom-rotate" style="max-width: <?= $width ?>px; max-height: <?= $height ?>px;" itemscope itemtype="http://schema.org/CreativeWork">
-  <a href="/blog/<?= $post->id ?>">
+  <a href="/blog/<?= $post->id ?>" title="Leggi l'articolo">
     <img src="/image/<?= $img_url ?>" alt="<?= $post->title ?>" class="img-responsive" itemprop="image">
     <div class="teaser-info">
       <h4 itemprop="name"><?= $post->title ?></h4>
