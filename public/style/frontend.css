@@ -39,13 +39,6 @@ header.header-image {
   text-shadow: 0 0 1px #EEE;
 }
 
-@media only screen and (max-width: 765px) {
-  header.header-image {
-    background-image: none;
-    min-height: 40vw;
-  }
-}
-
 header.header-image .header-container {
   min-height: 15vw;
   position: relative;
