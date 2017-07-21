@@ -3,7 +3,7 @@ $page_info = [
   'title' => "Calendario Eventi",
   'section' => 'calendario',
   'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
-  'image' => "http://{$_SERVER['HTTP_HOST']}/public/style/logo.svg",
+  'image' => "http://{$_SERVER['HTTP_HOST']}/public/style/logo.png",
   'description' => "Calendario eventi e concerti del Coro della Joska, con date e luogi di eventi, concerti e manifestazioni passati e in programma.",
   'show_header_image' => true
 ];

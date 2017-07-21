@@ -3,7 +3,7 @@ $page_info = [
   'title' => "Contatti e Link",
   'section' => 'contatti',
   'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
-  'image' => "http://{$_SERVER['HTTP_HOST']}/public/style/logo.svg",
+  'image' => "http://{$_SERVER['HTTP_HOST']}/public/style/logo.png",
   'description' => "Pagina che raccoglie le iformazioni su come contattare il Coro della Joska e ne riporta i collegamenti.",
   'show_header_image' => true
 ];

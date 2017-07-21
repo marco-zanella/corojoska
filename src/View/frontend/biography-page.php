@@ -3,7 +3,7 @@ $page_info = [
   'title' => "Biografia",
   'section' => 'biografia',
   'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
-  'image' => "http://{$_SERVER['HTTP_HOST']}/public/style/logo.svg",
+  'image' => "http://{$_SERVER['HTTP_HOST']}/public/style/logo.png",
   'description' => "Biografia e note storiche del Coro della Joska del Liceo Scientifico Statale P. Paleocapa di Rovigo.",
   'show_header_image' => true
 ];
