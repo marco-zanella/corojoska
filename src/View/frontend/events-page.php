@@ -24,7 +24,7 @@ $page_info = [
       <?php $this->view('frontend/header', $page_info); ?>
     </header>
 
-    <div class="container background-white">
+    <main class="container">
       <div class="row">
         <!-- Main content -->
         <div class="col-md-8 col-lg-9">
@@ -50,7 +50,7 @@ $page_info = [
           <?php $this->view('frontend/aside', $_variables); ?>
         </aside>
       </div>
-    </div>
+    </main>
 
 
     <!-- Footer -->

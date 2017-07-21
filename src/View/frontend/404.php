@@ -26,7 +26,7 @@ $page_info = [
       <?php $this->view('frontend/header', $page_info); ?>
     </header>
 
-    <div class="container background-white">
+    <main class="container">
       <div class="row">
         <!-- Main content -->
         <div class="col-xs-12">
@@ -55,7 +55,7 @@ $page_info = [
           </section>
         </div>
       </div>
-    </div>
+    </main>
 
 
     <!-- Footer -->

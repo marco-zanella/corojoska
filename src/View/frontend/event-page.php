@@ -34,7 +34,7 @@ endif;
       <?php $this->view('frontend/header', $page_info); ?>
     </header>
 
-    <div class="container background-white">
+    <main class="container">
       <div class="row">
         <!-- Main content -->
         <?php $this->view('widgets/breadcrumb', ['pages' => $breadcrumb]); ?>
@@ -65,7 +65,7 @@ endif;
           <?php $this->view('frontend/aside', $_variables); ?>
         </aside>
       </div>
-    </div>
+    </main>
 
 
     <!-- Footer -->

@@ -1,3 +1,23 @@
+/**
+ * This file is part of Corojoska.
+ *
+ * Corojoska is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Corojoska is distributed under the hope it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Corojoska. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/**
+ * Teaser object.
+ */
 .teaser {
   position: relative;
   overflow: hidden;
@@ -7,7 +27,6 @@
 .teaser img {
   transition: 0.5s;
 }
-
 
 .teaser .teaser-info {
   position: absolute;
@@ -20,11 +39,9 @@
   transition: 0.5s;
 }
 
-
 .teaser:hover .teaser-info {
   background: rgba(25, 78, 174, 0.8);
 }
-
 
 .teaser .teaser-info h4 {
   margin-bottom: 0;
@@ -32,10 +49,9 @@
 
 
 
-
-
-
-
+/**
+ * Large teaser variant.
+ */
 .teaser.teaser-large .teaser-info {
   bottom: 0;
 }
@@ -52,34 +68,24 @@
 
 
 
-
-
-
-
-
-
-
-
-
+/**
+ * Image animations for teasers (and their variants.
+ */
 .teaser-zoom:hover img {
-  transform: scale(1.5, 1.5);
+  transform: scale(1.25, 1.25);
 }
-
 
 .teaser-rotate:hover img {
   transform: rotate(15deg);
 }
 
-
 .teaser-zoom-rotate:hover img {
   transform: rotate(15deg) scale(1.5, 1.5);
 }
 
-
 .teaser-flip:hover img {
   transform: rotateY(360deg);
 }
-
 
 .teaser-opacity img {
   opacity: 0.7;
@@ -89,7 +95,6 @@
   opacity: 1.0;
 }
 
-
 .teaser-blur img {
   filter: blur(1px);
 }
@@ -97,7 +102,6 @@
 .teaser-blur img:hover {
   filter: blur(0);
 }
-
 
 .teaser-grayscale img {
   filter: grayscale(75%);
@@ -107,7 +111,6 @@
   filter: grayscale(0%);
 }
 
-
 .teaser-sepia img {
   filter: sepia(75%);
 }
@@ -115,7 +118,6 @@
 .teaser-sepia:hover img {
   filter: sepia(0%);
 }
-
 
 .teaser-saturate img:hover {
   filter: saturate(200%);
