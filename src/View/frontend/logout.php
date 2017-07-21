@@ -3,7 +3,7 @@ $page_info = [
   'title' => "Esci",
   'section' => 'accedi',
   'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
-  'image' => null,
+  'image' => "http://{$_SERVER['HTTP_HOST']}/public/style/logo.svg",
   'description' => "Permette la disconnessione sicura dall'area riservata del sito web del Coro della Joska per gli utenti amministratori.",
   'show_header_image' => true
 ];

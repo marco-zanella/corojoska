@@ -3,7 +3,7 @@ $page_info = [
   'title' => "Blog",
   'section' => 'home',
   'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
-  'image' => null,
+  'image' => "http://{$_SERVER['HTTP_HOST']}/public/style/logo.svg",
   'description' => "Blog del Coro della Joska, con gli articoli e gli interventi dei coristi.",
   'show_header_image' => true
 ];

@@ -3,7 +3,7 @@ $page_info = [
   'title' => $event->name,
   'section' => 'calendario',
   'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
-  'image' => $event->image,
+  'image' => "http://{$_SERVER['HTTP_HOST']}/" . $event->image,
   'description' => $event->getSummary(),
   'show_header_image' => false
 ];

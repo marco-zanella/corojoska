@@ -5,7 +5,7 @@ $page_info = [
   'title' => "404 - File Not Found",
   'section' => 'misc',
   'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
-  'image' => null, 
+  'image' => "http://{$_SERVER['HTTP_HOST']}/public/style/logo.svg", 
   'description' => "La risorsa cercata non è stata trovata.",
   'show_header_image' => true
 ];

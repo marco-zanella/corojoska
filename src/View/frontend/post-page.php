@@ -3,7 +3,7 @@ $page_info = [
   'title' => $post->title,
   'section' => 'home',
   'canonical' => "http://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}",
-  'image' => $post->image,
+  'image' => "http://{$_SERVER['HTTP_HOST']}/" . $post->image,
   'description' => $post->getSummary(),
   'show_header_image' => false
 ];
