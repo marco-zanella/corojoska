@@ -62,7 +62,7 @@ class MyPosts extends Controller {
         $post->author = \Joska\Session::getAuthenticatedUser();
         $data_mapper->create($post);
 
-        header('Location: /my-posts');
+        return $this->view('backend/my-posts-publish', ['post' => $post]);
     }
 
 
