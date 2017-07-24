@@ -50,10 +50,10 @@ $page_info = [
               </div>
 
               <div class="col-sm-4 col-lg-3">
-                <a href="http://www.facebook.com/pages/Coro-della-Joska/220271187993095" title="Pagina Facebook"><img src="/public/style/icon-facebook.svg" alt="Facebook" class="img-responsive center-block contact-icon"></a>
+                <a href="http://www.facebook.com/corojoska" title="Pagina Facebook"><img src="/public/style/icon-facebook.svg" alt="Facebook" class="img-responsive center-block contact-icon"></a>
                 <p class="text-center">Pagina Facebook</p>
                 <p class="text-center">
-                  <a href="http://www.facebook.com/pages/Coro-della-Joska/220271187993095" title="Pagina Facebook">www.facebook.com/pages/Coro-della-Joska/220271187993095</a>
+                  <a href="http://www.facebook.com/corojoska" title="Pagina Facebook">www.facebook.com/corojoska</a>
                 </p>
               </div>
 
@@ -108,7 +108,7 @@ $page_info = [
                 </div>
                 <div class="media-body">
                   <h4 class="media-heading">Pagina Facebook</h4>
-                  <a href="http://www.facebook.com/pages/Coro-della-Joska/220271187993095" title="Sito web">www.facebook.com/pages/Coro-della-Joska/220271187993095</a>
+                  <a href="http://www.facebook.com/corojoska" title="Sito web">www.facebook.com/corojoska</a>
                 </div>
               </div>
 

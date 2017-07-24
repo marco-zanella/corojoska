@@ -10,7 +10,7 @@
         <img src="/public/style/icon-email.svg" alt="Email" class="icon">
       </a>
 
-      <a href="http://www.facebook.com/pages/Coro-della-Joska/220271187993095" title="Pagina Facebook">
+      <a href="http://www.facebook.com/corojoska" title="Pagina Facebook">
         <img src="/public/style/icon-facebook.svg" alt="Pagina Facebook" class="icon">
       </a>
 
