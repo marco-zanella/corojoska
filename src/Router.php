@@ -34,6 +34,12 @@ namespace Joska;
  */
 class Router {
     /**
+     * @var bool $matched Tells whether a route already matched
+     */
+    private $matched = false;
+
+
+    /**
      * Declares a route.
      *
      * Patterns may use paramters or optional parameters, in the form of:
@@ -46,6 +52,10 @@ class Router {
      * @note This method expects global arrays such as $_SERVER to be set
      */
     public function declareRoute($pattern, $controller_name) {
+        if ($this->matched) {
+            return $this;
+        }
+
         $binders = $this->routeMatch($pattern, $_SERVER['REQUEST_URI']);
 
         // Returns if route does not match
@@ -57,6 +67,31 @@ class Router {
         $method = $this->getMethod();
 
         $controller->$method($binders);
+        $this->matched = true;
+
+        return $this;
+    }
+
+
+
+    /**
+     * Declares a default route.
+     * 
+     * Uses route incontitionately, usually to show a 404 error page.
+     * 
+     * @param string $controller_name Fully qualified name of controller to use
+     * @api
+     */
+    public function defaultRoute($controller_name) {
+        if ($this->matched) {
+            return $this;
+        }
+
+        $controller = new $controller_name();
+        $method = $this->getMethod();
+
+        $controller->$method([]);
+        $this->matched = true;
 
         return $this;
     }
