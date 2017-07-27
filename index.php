@@ -25,5 +25,6 @@ $router
 // Miscellaneous and utitilies
 ->declareRoute('/image/{path}/{width}/{height}/{extension?}', 'Joska\Controller\Image')
 ->declareRoute('/sitemap', 'Joska\Controller\Sitemap')
+->declareRoute('/error/{message?}', 'Joska\Controller\Error')
 ->defaultRoute('Joska\Controller\NotFound')
 ;

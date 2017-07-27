@@ -21,12 +21,33 @@
  * @copyright 2017 Coro della Joska
  * @license   GNU General Public License, version 3
  */
-set_error_handler(function ($errno, $errstr, $errfile, $errline) {
-    header('Location: /error/' . urlencode("Error $errno: $errstr in $errfile: $errline"));
-    exit;
-});
+namespace Joska\Controller;
 
-set_exception_handler(function ($exception) {
-    header('Location: /error/' . urlencode($exception->getMessage()));
-    exit;
-});
+/**
+ * Controller for error page.
+ * 
+ * This class follows the Model-View-Controller Pattern and exhibits
+ * a Fluent Interface.
+ * 
+ * @author Marco Zanella <mz@openmailbox.org>
+ * @copyright 2017 Coro della Joska
+ * @package Joska\Controller
+ */
+class Error extends Controller {
+    /**
+     * Shows an error page.
+     * 
+     * @param array Associative array of additional parameters
+     * @return $this This controller itself
+     * @api
+     */
+    public function get($binders = []) {
+        $params = [];
+
+        if (isset($binders['message'])) {
+            $params['message'] = urldecode($binders['message']);
+        }
+
+        return $this->view('frontend/errorpage', $params);
+    }
+}
