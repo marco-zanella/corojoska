@@ -1,3 +1,3 @@
 User-agent: *
 Disallow:
-Sitemap: http://192.168.0.10/sitemap
+Sitemap: http://www.corojoska.altervista.org/sitemap

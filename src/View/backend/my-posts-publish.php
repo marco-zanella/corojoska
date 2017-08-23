@@ -69,7 +69,7 @@ $page_info = [
     $(function () {
       $('#publishFacebook').click(function (event) {
         var params = {
-          message: "<?= str_replace(["\n", "\r\n", "\r"], " ", strip_tags($post->content)) ?>",
+          message: <?= json_encode(html_entity_decode(strip_tags($post->content), ENT_QUOTES, 'UTF-8')) ?>,
           link: "<?= "http://{$_SERVER['HTTP_HOST']}/blog/" . $post->id ?>"
         };
         publishPost(params);

@@ -7,13 +7,13 @@ endif;
 
 <div class="row">
   <?php if (isset($posts[1])): ?>
-  <div class="col-xs-6">
+  <div class="col-sm-6">
     <?php $this->view('widgets/post-thumbnail', ['post' => $posts[1]]); ?>
   </div>
   <?php endif; ?>
 
   <?php if (isset($posts[2])): ?>
-  <div class="col-xs-6">
+  <div class="col-sm-6">
     <?php $this->view('widgets/post-thumbnail', ['post' => $posts[2]]); ?>
   </div>
   <?php endif; ?>

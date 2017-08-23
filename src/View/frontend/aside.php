@@ -1,5 +1,5 @@
 <div class="hidden-sm hidden-xs">
-  <a href="/" title="Home page del Coro della Joska"><img src="/public/style/logo.svg" alt="Coro della Joska - logo" class="img-responsive img-thumbnail center-block"></a>
+  <a href="/" title="Home page del Coro della Joska"><img src="/public/style/logo.png" alt="Coro della Joska - logo" class="img-responsive img-thumbnail center-block"></a>
 </div>
 <a href="/contatti" title="Canta con noi" class="btn btn-primary btn-lg btn-block">Canta con noi!</a>
 <?php $this->view('widgets/upcoming-events', ['upcoming_events' => $upcoming_events]); ?>

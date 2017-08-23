@@ -33,6 +33,10 @@ $page_info = [
             <?php foreach ($upcoming_events as $event): ?>
             <?php $this->view('widgets/event-teaser-large', ['event' => $event]); ?>
             <?php endforeach; ?>
+            
+            <?php if (empty($upcoming_events)): ?>
+            <p>Al momento non ci sono eventi in programma.</p>
+            <?php endif; ?>
           </section>
 
           <section>
