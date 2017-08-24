@@ -62,6 +62,8 @@ class ManageEvents extends Controller {
             }
             $event->image = $image_path;
         }
+        $event->created_at = time();
+        $event->updated_at = time();
 
         $mapper->create($event);
 
