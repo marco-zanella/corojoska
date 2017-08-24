@@ -141,7 +141,7 @@ class ManageEvents extends Controller {
             $event->image = $image_path;
         }
 
-        $event->updated_at = null;
+        $event->updated_at = date('Y-m-d H:i:s', time());
         $mapper->update($event);
 
         return $this->view('backend/manage-events-edit', ['event' => $event]);
