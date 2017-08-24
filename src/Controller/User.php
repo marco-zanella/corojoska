@@ -49,6 +49,8 @@ class User extends Controller {
         $user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $user->name = $_POST['name'];
         $user->surname = $_POST['surname'];
+        $user->created_at = date('Y-m-d H:i:s', time());
+        $user->updated_at = date('Y-m-d H:i:s', time());
 
         $mapper = new \Joska\DataMapper\Sql('User');
         $mapper->create($user);
@@ -127,7 +129,7 @@ class User extends Controller {
         }
         $user->name = $_POST['name'];
         $user->surname = $_POST['surname'];
-        $user->updated_at = null;
+        $user->updated_at = date('Y-m-d H:i:s', time());
         $mapper->update($user);
 
         // Updates permissions

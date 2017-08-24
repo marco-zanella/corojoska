@@ -60,6 +60,8 @@ class MyPosts extends Controller {
         $post->image = $image_path;
 
         $post->author = \Joska\Session::getAuthenticatedUser();
+        $post->created_at = date('Y-m-d H:i:s', time());
+        $post->updated_at = date('Y-m-d H:i:s', time());
         $data_mapper->create($post);
 
         return $this->view('backend/my-posts-publish', ['post' => $post]);
@@ -140,7 +142,7 @@ class MyPosts extends Controller {
             $post->image = $image_path;
         }
 
-        $post->updated_at = null;
+        $post->updated_at = date('Y-m-d H:i:s', time());
         $mapper->update($post);
 
         return $this->view('backend/my-posts-edit', ['post' => $post]);

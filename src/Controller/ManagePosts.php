@@ -101,7 +101,7 @@ class ManagePosts extends Controller {
             $post->image = $image_path;
         }
 
-        $post->updated_at = null;
+        $post->updated_at = date('Y-m-d H:i:s', time());
         $mapper->update($post);
 
         return $this->view('backend/manage-posts-edit', ['post' => $post]);
