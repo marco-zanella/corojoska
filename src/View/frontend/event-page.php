@@ -42,7 +42,9 @@ endif;
           <h2><?= $event->name ?></h2>
           <div class="row">
             <div class="col-sm-4 col-md-5">
+              <?php if (!empty($event->image)): ?>
               <img src="/<?= $event->image ?>" alt="<?= $event->name ?>" class="img-responsive">
+              <?php endif; ?>
             </div>
             <div class="col-sm-8 col-md-7">
               <p><?= $event->summary ?></p>
