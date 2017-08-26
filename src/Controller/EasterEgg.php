@@ -24,7 +24,7 @@
 namespace Joska\Controller;
 
 /**
- * Controller for biography static page.
+ * Controller for easter egg static page.
  * 
  * This class follows the Model-View-Controller Pattern and exhibits
  * a Fluent Interface.
@@ -33,7 +33,7 @@ namespace Joska\Controller;
  * @copyright 2017 Coro della Joska
  * @package Joska\Controller
  */
-class Biography extends Controller {
+class EasterEgg extends Controller {
     /**
      * Returns the biography page.
      * 
