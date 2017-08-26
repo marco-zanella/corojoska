@@ -47,11 +47,12 @@ $page_info = [
             <p>Se vuoi saperne di più su questi meme e riderne vienici a trovare ogni sabato alle 13:30. Per sapere dove guarda la voce <a href="/contatti" title="Visualizza la pagina dei contatti">Contatti</a> del nostro sito.</p>
             
             <h3>E questo cos'è?</h3>
-            <audio autoplay="autoplay" controls="controls" loop="loop">              
+            <audio autoplay="autoplay" controls="controls" loop="loop" class="center-block">
               <source src="/public/content/me-compare-giacometo.ogg" type="audio/ogg">
               <source src="/public/content/me-compare-giacometo.mp3" type="audio/mpeg">
               Peccato che il tuo browser non supporti l'audio...
             </audio>
+            <p>Ti piace? Vieni a <a href="/contatti" title="Visualizza la pagina dei contatti">cantarlo con noi</a>!</p>
           </section>
         </div>
 
