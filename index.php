@@ -14,6 +14,7 @@ $router
 ->declareRoute('/biografia', 'Joska\Controller\Biography')
 ->declareRoute('/contatti', 'Joska\Controller\Contacts')
 ->declareRoute('/login', 'Joska\Controller\Session')
+->declareRoute('/easter-egg', 'Joska\Controller\EasterEgg')
 
 // Backend
 ->declareRoute('/account/{mode?}', 'Joska\Controller\Account')
