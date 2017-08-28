@@ -63,6 +63,17 @@ class MyPosts extends Controller {
         $post->created_at = date('Y-m-d H:i:s', time());
         $post->updated_at = date('Y-m-d H:i:s', time());
         $data_mapper->create($post);
+        
+        // Indexes post for searching purposes
+        $search_engine = new \Joska\SearchEngine\Simple();
+        $search_engine->load();
+        $search_engine->index([
+            'id' => 'post-' . $post->id,
+            'title' => $post->title,
+            'summary' => $post->summary,
+            'content' => $post->content
+        ]);
+        $search_engine->save();
 
         return $this->view('backend/my-posts-publish', ['post' => $post]);
     }
@@ -144,6 +155,17 @@ class MyPosts extends Controller {
 
         $post->updated_at = date('Y-m-d H:i:s', time());
         $mapper->update($post);
+        
+        // Indexes post for searching purposes
+        $search_engine = new \Joska\SearchEngine\Simple();
+        $search_engine->load();
+        $search_engine->index([
+            'id' => 'post-' . $post->id,
+            'title' => $post->title,
+            'summary' => $post->summary,
+            'content' => $post->content
+        ]);
+        $search_engine->save();
 
         return $this->view('backend/my-posts-edit', ['post' => $post]);
     }
@@ -176,6 +198,10 @@ class MyPosts extends Controller {
         if (file_exists($post->image)) {
             unlink($post->image);
         }
+        
+        // Deletes post from search index
+        $search_engine = new \Joska\SearchEngine\Simple();
+        $search_engine->load()->remove('post-' . $id);
 
         header('Location: /my-posts');
     }
