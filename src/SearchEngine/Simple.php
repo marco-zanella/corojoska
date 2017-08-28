@@ -59,6 +59,21 @@ class Simple implements SearchEngineInterface {
     
     
     /**
+     * Removes a document from indexed data.
+     * 
+     * @param string $id Id of the document to remove
+     * @return $this This search engine itself
+     */
+    public function remove($id) {
+        if (isset($this->indexed_items[$id])) {
+            unset($this->indexed_items[$id]);
+        }
+        
+        return $this;
+    }
+    
+    
+    /**
      * Performs a search.
      * 
      * Searches given query among indexed elements.

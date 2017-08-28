@@ -66,6 +66,16 @@ class ManageEvents extends Controller {
         $event->updated_at = date('Y-m-d H:i:s', time());
 
         $mapper->create($event);
+        
+        // Indexes event for searching purposes
+        $search_engine = new \Joska\SearchEngine\Simple();
+        $search_engine->load();
+        $search_engine->index([
+            'id' => 'event-' . $event->id,
+            'name' => $event->name,
+            'description' => $event->description
+        ]);
+        $search_engine->save();
 
         header('Location: /manage-events');
     }
@@ -143,6 +153,16 @@ class ManageEvents extends Controller {
 
         $event->updated_at = date('Y-m-d H:i:s', time());
         $mapper->update($event);
+        
+        // Indexes event for searching purposes
+        $search_engine = new \Joska\SearchEngine\Simple();
+        $search_engine->load();
+        $search_engine->index([
+            'id' => 'event-' . $event->id,
+            'name' => $event->name,
+            'description' => $event->description
+        ]);
+        $search_engine->save();
 
         return $this->view('backend/manage-events-edit', ['event' => $event]);
     }
@@ -171,6 +191,10 @@ class ManageEvents extends Controller {
         if (file_exists($event->image)) {
             unlink($event->image);
         }
+        
+        // Deletes event from search index
+        $search_engine = new \Joska\SearchEngine\Simple();
+        $search_engine->load()->remove('event-' . $id);
 
         header('Location: /manage-events');
     }
