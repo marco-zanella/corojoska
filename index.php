@@ -13,6 +13,7 @@ $router
 ->declareRoute('/calendario/{id?}', 'Joska\Controller\Events')
 ->declareRoute('/biografia', 'Joska\Controller\Biography')
 ->declareRoute('/contatti', 'Joska\Controller\Contacts')
+->declareRoute('/cerca', 'Joska\Controller\Search')
 ->declareRoute('/login', 'Joska\Controller\Session')
 ->declareRoute('/easter-egg', 'Joska\Controller\EasterEgg')
 
