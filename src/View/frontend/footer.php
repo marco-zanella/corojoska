@@ -17,6 +17,10 @@
       <a href="http://www.youtube.com/user/Corojoska" title="Canale Youtube">
         <img src="/public/style/icon-youtube.svg" alt="Canale Youtube" class="icon">
       </a>
+
+      <a href="/easter-egg" title="Sorpresa! Easter egg!">
+        <img src="/public/style/icon-easer-egg.svg" alt="Easter egg" class="icon">
+      </a>
     </div>
   </div>
 </div>
