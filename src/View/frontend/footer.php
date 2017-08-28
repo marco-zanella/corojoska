@@ -19,7 +19,7 @@
       </a>
 
       <a href="/easter-egg" title="Sorpresa! Easter egg!">
-        <img src="/public/style/icon-easer-egg.svg" alt="Easter egg" class="icon">
+        <img src="/public/style/icon-easter-egg.svg" alt="Easter egg" class="icon">
       </a>
     </div>
   </div>
