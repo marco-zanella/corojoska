@@ -61,7 +61,6 @@ class Search extends Controller {
         
         
         // Performs a search
-$this->reindex();
         $time_start = microtime(true);
         $query = $_GET['q'];
         $search_engine = new \Joska\SearchEngine\Simple();
