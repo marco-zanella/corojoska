@@ -38,13 +38,6 @@ $date = date('Y-m-d');
   </url>
 
   <url>
-    <loc><?= url('/repertorio') ?></loc>
-    <lastmod><?= $date ?></lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
     <loc><?= url('/contatti') ?></loc>
     <lastmod><?= $date ?></lastmod>
     <changefreq>yearly</changefreq>
